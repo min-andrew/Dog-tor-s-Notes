@@ -26,10 +26,15 @@ const typeDefs = `#gql
         image: String
     }
 
-    type Auth {
-        token: ID!
-        user: User
-    }
+// Added the VetNotes, but left the rest
+    type VetNotes. Wasn't clear about linking to the profile. Come back to this. {
+        _id: ID
+        primaryConcern: String
+        onsetDate: String
+        otherConcerns: String
+        symptoms: String
+        profile: [Profile]
+      }
 
     input savedNote {
         journal: String

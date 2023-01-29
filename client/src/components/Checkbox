@@ -1,0 +1,63 @@
+// Not sure the checkbox data will be formatted the way we need it. Will wait to be able to test this. Ideally it's in a json string.
+
+import { useState } from "react"
+
+const allSymptoms = [
+  { name: "Appetite change", checked: false },
+  { name: "Thirst change", checked: false },
+  { name: "Vomiting or gagging", checked: false },
+  { name: "Diarrhea", checked: false },
+  { name: "Wound/cut/injury", checked: false },
+  { name: "Lump(s) or mass(es)", checked: false },
+  { name: "Skin/ear problems", checked: false },
+  { name: "Limping/mobility issues", checked: false },
+  { name: "Behavior problems", checked: false },
+  { name: "Breathing problems", checked: false },
+  { name: "Lethargy", checked: false },
+  { name: "Abnormal urination", checked: false },
+  { name: "Coughing or sneezing", checked: false },
+  { name: "Other", checked: false }
+]
+
+export const Checkbox = ({ isChecked, label, checkHandler, index }) => {
+  return (
+    <div>
+      <input
+        type="checkbox"
+        id={`checkbox-${index}`}
+        checked={isChecked}
+        onChange={checkHandler}
+      />
+      <label htmlFor={`checkbox-${index}`}>{label}</label>
+    </div>
+  )
+}
+
+function Symptoms() {
+    const [symptoms, setSymptoms] = useState(allSymptoms)
+  
+    const updateCheckStatus = index => {
+        setSymptoms(
+            symptoms.map((symptom, currentIndex) =>
+          currentIndex === index
+            ? { ...symptom, checked: !symptom.checked }
+            : symptom
+        )
+      )
+    }
+    return (
+        <div className="Symptoms">
+          {symptoms.map((symptom, index) => (
+            <Checkbox
+              key={symptom.name}
+              isChecked={symptom.checked}
+              checkHandler={() => updateCheckStatus(index)}
+              label={symptom.name}
+              index={index}
+            />
+          ))}
+        </div>
+      )
+    }
+    
+    export default Symptoms;
