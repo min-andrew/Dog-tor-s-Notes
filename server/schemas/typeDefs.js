@@ -3,12 +3,11 @@ const typeDefs = `#gql
     me: User
     }
 
-// TODO: update the saveBook & removeBook with other necessary mutations
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        saveBook(input: savedBook!): User
-        removeBook(bookId: ID!): User
+        saveNote(input: savedNote!): User
+        removeNote(NoteId: ID!): User
     }
 
     type User {
@@ -31,8 +30,7 @@ const typeDefs = `#gql
         image: String
     }
 
-// Added the VetNotes, but left the rest
-    type VetNotes. Wasn't clear about linking to the profile. Come back to this. {
+    type VetNotes {
         _id: ID
         primaryConcern: String
         onsetDate: String
@@ -49,5 +47,5 @@ const typeDefs = `#gql
         authors: [String]
       }
 `;
-
+// Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
 module.exports = typeDefs;
