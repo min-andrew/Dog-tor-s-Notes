@@ -52,7 +52,7 @@ const resolvers = {
             }
             const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user_id },
-                { $pull: { savedBooks: {NoteId: args.noteId} }},
+                { $pull: { savedNote: {NoteId: args.noteId} }},
                 { new: true }
             );
             return updatedUser;
