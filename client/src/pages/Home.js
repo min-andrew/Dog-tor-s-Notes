@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Featurelist from '../components/Featurelist';
+import Featurelist from '../components/FeatureList';
 
 const Home = () => {
     return (
