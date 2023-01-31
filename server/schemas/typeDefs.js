@@ -37,7 +37,7 @@ const typeDefs = `#gql
         onsetDate: String
         otherConcerns: String
         symptoms: String
-        profile: [Profile]
+  
       }
 
     input savedNote {
@@ -48,5 +48,6 @@ const typeDefs = `#gql
         authors: [String]
       }
 `;
+//profile: [Profile]
 // Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
 module.exports = typeDefs;
