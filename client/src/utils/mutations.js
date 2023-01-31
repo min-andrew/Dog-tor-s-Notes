@@ -23,3 +23,13 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_INFO = gql`
+  mutation addInfo($profileId: ID!, $info: String!) {
+    addInfo(profileId: $profileId, info: $info) {
+      _id
+      name
+      info
+    }
+  }
+`;
