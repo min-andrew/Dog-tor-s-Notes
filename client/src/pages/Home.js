@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Feautrelist from '../components/Featurelist';
+import Featurelist from '../components/Featurelist';
 
 const Home = () => {
     return (
@@ -8,7 +8,7 @@ const Home = () => {
             <div className="">
                 <div className="">
                     <div>
-                        <Feautrelist
+                        <Featurelist
                             title="Summary"
                         />
                     </div>
