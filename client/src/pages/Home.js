@@ -8,9 +8,10 @@ const Home = () => {
             <div className="">
                 <div className="">
                     <div>
-                        <Featurelist
+                        Hello
+                        {/* <Featurelist
                             title="Summary"
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
