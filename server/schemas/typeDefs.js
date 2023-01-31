@@ -14,7 +14,7 @@ const typeDefs = `#gql
         _id: ID!
         username: String
         email: String
-        notes: [Note]
+        profile: [Profile]
     }
 
     type Auth {
