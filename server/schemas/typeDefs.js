@@ -23,11 +23,12 @@ const typeDefs = `#gql
       }
 
     type Profile {
-        profileId: String
-        authors: [String]
-        journal: String
-        title: String
-        image: String
+        _id: ID
+        petName: String!
+        age: String!
+        breed: String!
+        foodBrand: String!
+        humanName: String!
     }
 
     type VetNotes {
