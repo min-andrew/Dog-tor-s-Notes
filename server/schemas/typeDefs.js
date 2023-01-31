@@ -22,8 +22,8 @@ const typeDefs = `#gql
         user: User
       }
 
-    type Note {
-        noteId: String
+    type Profile {
+        profileId: String
         authors: [String]
         journal: String
         title: String
