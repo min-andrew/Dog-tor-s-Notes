@@ -3,19 +3,19 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import SkillsList from '../components/SkillsList';
-import SkillForm from '../components/SkillForm';
+import InfoList from '../components/InfoList/index.js';
+import InfoForm from '../components/InfoForm';
 
 import { QUERY_SINGLE_PROFILE } from '../utils/queries';
 
-const Personal = () => {
-  const { personalId } = useParams();
+const Profile = () => {
+  const { profileId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_PROFILE, {
-    variables: { personalId: personalId },
+    variables: { profileId: profileId },
   });
 
-  const personal = data?.personal || {};
+  const profile = data?.profile || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -23,13 +23,13 @@ const Personal = () => {
   return (
     <div>
       <h2 className="card-header">
-        {personal.name}'s friends have endorsed these skills...
+        {profile.name}'s information
       </h2>
 
-      {personal.skills?.length > 0 && <SkillsList skills={personal.skills} />}
+      {profile.info?.length > 0 && <InfoList info={profile.info} />}
 
       <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <SkillForm profileId={personal._id} />
+        <InfoForm profileId={profile._id} />
       </div>
     </div>
   );

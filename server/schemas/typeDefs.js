@@ -22,12 +22,13 @@ const typeDefs = `#gql
         user: User
       }
 
-    type Note {
-        noteId: String
-        authors: [String]
-        journal: String
-        title: String
-        image: String
+    type Profile {
+        _id: ID
+        petName: String!
+        age: String!
+        breed: String!
+        foodBrand: String!
+        humanName: String!
     }
 
     type VetNotes {
