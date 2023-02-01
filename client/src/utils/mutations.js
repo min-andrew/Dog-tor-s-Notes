@@ -33,3 +33,15 @@ export const ADD_INFO = gql`
     }
   }
 `;
+
+export const ADD_VETNOTE = gql`
+  mutation addVetNote($vetNoteId: ID!, $appointmentDate: String!, $primaryConcern: String!, $onsetDate: String!) {
+    addInfo(vetNoteId: $vetNoteId, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate) {
+      _id
+      appointmentDate
+      primaryConcern
+      onsetDate
+      otherConcerns
+    }
+  }
+  `;

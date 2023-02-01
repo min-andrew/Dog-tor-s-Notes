@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Profile, Vet } = require("../models");
+const { User, Profile, VetNote } = require("../models");
 const { signToken } = require("../utils/auth");
 // const { GraphQLError } = require("graphql");
 
@@ -8,7 +8,7 @@ const resolvers = {
       profile: async () => {
         return await Profile.find();
       },
-      vet: async (parent, { profile, petName }) => {
+      vetNote: async (parent, { profile, petName }) => {
         const params = {};
   
         if (profile) {
@@ -23,13 +23,13 @@ const resolvers = {
   
         return await Product.find(params).populate('profile');
       },
-      vet: async (parent, { _id }) => {
+      vetNote: async (parent, { _id }) => {
         return await Product.findById(_id).populate('profile');
       },
       user: async (parent, args, context) => {
         if (context.user) {
           const user = await User.findById(context.user._id).populate({
-            path: 'vet.profile',
+            path: 'vetNote.profile',
             populate: 'profile'
           });
   
@@ -49,14 +49,14 @@ const resolvers = {
   
         return { token, user };
       },
-      addVet: async (parent, { vet }, context) => {
+      addVetNote: async (parent, { vetNote }, context) => {
         console.log(context);
         if (context.user) {
-          const vet = new Vet({ vet });
+          const vetNote = new VetNote({ vetNote });
   
-          await User.findByIdAndUpdate(context.user._id, { $push: { vets: vet } });
+          await User.findByIdAndUpdate(context.user._id, { $push: { vetNotes: vetNote } });
   
-          return vet;
+          return vetNote;
         }
   
         throw new AuthenticationError('Not logged in');
@@ -68,11 +68,12 @@ const resolvers = {
   
         throw new AuthenticationError('Not logged in');
       },
-    //   updateVet: async (parent, { _id, quantity }) => {
+    //   updateVetNote: async (parent, { _id, quantity }) => {
     //     const decrement = Math.abs(quantity) * -1;
   
-    //     return await Vet.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+    //     return await VetNote.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     //   },
+
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
   

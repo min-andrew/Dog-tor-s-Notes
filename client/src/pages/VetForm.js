@@ -38,50 +38,50 @@ import { ADD_VETNOTE } from "../utils/mutations";
   return (
     <Container>
       <Segment basic textAlign={"center"}>
-      <Form>
-        <Form.Group widths='equal'>
+        <Form>
+            <Form.Group widths='equal'>
 
-          <Form.Field>
-          <label>Appointment Date</label>
-            <input
-              value={formState.appointmentDate}
-              name="appointmentDate"
-              onChange={handleChange}
-              placeholder="ex. 10/24/2023 or TBD"
-            />
-          </Form.Field>
+              <Form.Field>
+              <label>Appointment Date</label>
+                <input
+                  value={formState.appointmentDate}
+                  name="appointmentDate"
+                  onChange={handleChange}
+                  placeholder="ex. 10/24/2023 or TBD"
+                />
+              </Form.Field>
 
-          <Form.Field>
-            <label>Primary Concern</label>
-            <input
-              value={formState.primaryConcern}
-              name="primaryConcern"
-              onChange={handleChange}
-              placeholder="Primary Concern(s)"
-            />
-            </Form.Field>
+              <Form.Field>
+                <label>Primary Concern</label>
+                <input
+                  value={formState.primaryConcern}
+                  name="primaryConcern"
+                  onChange={handleChange}
+                  placeholder="Primary Concern(s)"
+                />
+                </Form.Field>
 
-            <Form.Field rows={6}>
-            <label>Date of Onset</label>
-            <input
-              value={formState.onsetDate}
-              name="onsetDate"
-              onChange={handleChange}
-              placeholder="Approximate date of symptom onset"
-            />
-            </Form.Field>  
+                <Form.Field>
+                <label>Date of Onset</label>
+                <input
+                  value={formState.onsetDate}
+                  name="onsetDate"
+                  onChange={handleChange}
+                  placeholder="Approximate date of symptom onset"
+                />
+                </Form.Field>  
 
-            <label>Other Concerns</label>
-            <TextArea rows={6} placeholder="Diet, new behaviors, dental issues, etc." value={formState.otherConcerns}
-              name="otherConcerns"
-              onChange={handleChange} />
-                        
-         </Form.Group>
-        
-        <Button circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
-      </Form>
+                <label>Other Concerns</label>
+                <TextArea rows={6} placeholder="Diet, new behaviors, dental issues, etc." value={formState.otherConcerns}
+                  name="otherConcerns"
+                  onChange={handleChange} />
+                            
+            </Form.Group>
+            
+            <Button circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
+        </Form>
       </Segment>
-      </Container>
+    </Container>
   );
 };
  
