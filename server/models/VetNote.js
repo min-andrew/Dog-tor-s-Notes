@@ -29,6 +29,6 @@ const vetSchema = new Schema(
   }
 );
 
-const VetNotes = model('vet', vetSchema);
+const VetNote = model('vetNote', vetSchema);
 
-module.exports = VetNotes;
+module.exports = VetNote;

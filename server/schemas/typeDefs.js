@@ -26,14 +26,14 @@ const typeDefs = gql`
         humanName: String!
     }
 
-    type VetNotes {
-        _id: ID
-        primaryConcern: String
-        onsetDate: String
-        otherConcerns: String
-        symptoms: String
-  
-      }
+    type VetNote {
+      _id: ID
+      appointmentDate: String!
+      primaryConcern: String!
+      onsetDate: String!
+      otherConcerns: String
+      profile: [Profile]
+    }
 
     input savedNote {
         journal: String
