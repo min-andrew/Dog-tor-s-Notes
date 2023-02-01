@@ -1,63 +1,96 @@
-const { User } = require("../models/index");
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Profile, Vet } = require("../models");
 const { signToken } = require("../utils/auth");
-const { GraphQLError } = require("graphql");
+// const { GraphQLError } = require("graphql");
 
 const resolvers = {
     Query: {
-        me: async (parent, args, context) => {
-            if (!context.user)
-                throw new GraphQLError("Error, please login into the query", {
-                    extensions: { code: 'UNCATHENTICATED' },
-                });
-            return await User.findById(context.user._id).populate("books");
-        },
+      profile: async () => {
+        return await Profile.find();
+      },
+      vet: async (parent, { profile, petName }) => {
+        const params = {};
+  
+        if (profile) {
+          params.profile = profile;
+        }
+  
+        if (petName) {
+          params.petName = {
+            $regex: petName
+          };
+        }
+  
+        return await Product.find(params).populate('profile');
+      },
+      vet: async (parent, { _id }) => {
+        return await Product.findById(_id).populate('profile');
+      },
+      user: async (parent, args, context) => {
+        if (context.user) {
+          const user = await User.findById(context.user._id).populate({
+            path: 'vet.profile',
+            populate: 'profile'
+          });
+  
+          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+  
+          return user;
+        }
+  
+        throw new AuthenticationError('Not logged in');
+      },
+
     },
     Mutation: {
-        login: async (parent, { email, password }) => {
-            //check email 
-            const user = await User.findOne({ email });
-            if (!user) {
-                throw new GraphQLError("There is no user associated with this email");
-            }
-            //check password
-            const checkPw = await user.isCorrectPassword(password);
-            if (!checkPw) {
-                throw new GraphQLError("Incorrect password");
-            }
-            const token = signToken(user);
-            return { token, user };
-        },
-
-        addUser: async (parent, { username, email, password}) => {
-            const user = await User.create({ username, email, password});
-            const token = signToken(user);
-            return { token, user };
-        },
-
-        saveNote: async (parent, args, context) => {
-            if(!context.user) {
-                throw new GraphQLError("Please login");
-            }
-            const updatedUser = await User.findOneAndUpdate(
-                { _id: context.user_id },
-                { $addToSet: { savedNotes: args.input }},
-                { new: true }
-            );
-            return updatedUser;
-        },
-
-        removeNote: async(parent, args, context) => {
-            if(!context.user) {
-                throw new GraphQLError("Please login");
-            }
-            const updatedUser = await User.findOneAndUpdate(
-                { _id: context.user_id },
-                { $pull: { savedNote: {NoteId: args.noteId} }},
-                { new: true }
-            );
-            return updatedUser;
-        },
-    },
-};
+      addUser: async (parent, args) => {
+        const user = await User.create(args);
+        const token = signToken(user);
+  
+        return { token, user };
+      },
+      addVet: async (parent, { vet }, context) => {
+        console.log(context);
+        if (context.user) {
+          const vet = new Vet({ vet });
+  
+          await User.findByIdAndUpdate(context.user._id, { $push: { vets: vet } });
+  
+          return vet;
+        }
+  
+        throw new AuthenticationError('Not logged in');
+      },
+      updateUser: async (parent, args, context) => {
+        if (context.user) {
+          return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        }
+  
+        throw new AuthenticationError('Not logged in');
+      },
+    //   updateVet: async (parent, { _id, quantity }) => {
+    //     const decrement = Math.abs(quantity) * -1;
+  
+    //     return await Vet.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+    //   },
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
+  
+        if (!user) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+  
+        const correctPw = await user.isCorrectPassword(password);
+  
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+  
+        const token = signToken(user);
+  
+        return { token, user };
+      }
+    }
+  };
 
 module.exports = resolvers;
