@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon index.js --ignore client"
   },
   "keywords": [],
   "author": "Jen Alexander, Alex Lee, Andrew Min, Tracy Pham, Kenny Wai",
