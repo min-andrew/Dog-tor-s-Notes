@@ -38,14 +38,6 @@ const typeDefs = gql`
       profile: [Profile]
     }
 
-    input savedNote {
-        journal: String
-        title: String
-        noteId: String
-        image: String
-        authors: [String]
-      }
-
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         addVetNote(vetNote: String!): VetNote
@@ -54,6 +46,6 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
       }
 `;
-//profile: [Profile]
-// Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
+
+// TODO: Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
 module.exports = typeDefs;
