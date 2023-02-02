@@ -21,7 +21,7 @@ const resolvers = {
           };
         }
   
-        return await Product.find(params).populate('profile');
+        return await Profile.find(params).populate('profile');
       },
       vetNote: async (parent, { _id }) => {
         return await Product.findById(_id).populate('profile');
