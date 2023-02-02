@@ -19,10 +19,13 @@ const DogHeader = () => {
   }
   const menu = {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    width: '100%',
+    width: '100%'
+  }
 
+  const buttonstyle = {
+    
   }
 
   return (
@@ -34,17 +37,14 @@ const DogHeader = () => {
               Dog-tor's Notes
             </h1>
           </Link>
-          <Header style={menu} as='h3' textAlign='center' >
-            <Link className="" to="/profiles/:profileId">
-              Profile
-            </Link>
+          <Header style={menu} textAlign='center' >
             {Auth.loggedIn() ? (
-              <button className="" onClick={logout}>
+              <button onClick={logout}>
                 Logout
               </button>
             ) : (
               <>
-                <Link className="" to="/login">
+                <Link to="/login">
                   Login
                 </Link>
                 <Link className="" to="/signup">
