@@ -4,14 +4,33 @@ import { Icon, Card } from 'semantic-ui-react'
 
 
 const FeatureList = ({ title }) => {
+
+    const titleStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    }
+
+    const bodyStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    }
+
+    const cardStyle = {
+        margin: '20px'
+    }
+
     return (
         <div>
-            <h3>{title}</h3>
-            <div>
+            <h3 style={titleStyle}>{title}</h3>
+            <div style={bodyStyle}>
                 <div >
                     <div>
                         <Card>
-                            <Link to="/VetForm">
+                            <Link style={cardStyle} to="/VetForm">
                                 <Card.Content>
                                     <Card.Header>
                                         <Icon enabled name='edit' size='big' />
@@ -24,7 +43,7 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <Card>
-                            <Link to="/VetNotes">
+                            <Link style={cardStyle} to="/VetNotes">
                                 <Card.Header>
                                     <Icon enabled name='hospital' size='big' />
                                     Vet Notes
@@ -35,7 +54,7 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <Card>
-                            <Link className="" to="/profiles/:profileId">
+                            <Link style={cardStyle}gi to="/profiles/:profileId">
                                 <Card.Header>
                                     <Icon enabled name='paw' size='big' />
                                     Profile

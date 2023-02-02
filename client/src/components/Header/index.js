@@ -25,7 +25,10 @@ const DogHeader = () => {
   }
 
   const buttonstyle = {
-    
+    // display: 'flex',
+    // justifyContent: 'space-evenly',
+    // alignItems: 'center',
+    // width: '100%'
   }
 
   return (
@@ -39,9 +42,11 @@ const DogHeader = () => {
           </Link>
           <Header style={menu} textAlign='center' >
             {Auth.loggedIn() ? (
-              <button onClick={logout}>
-                Logout
-              </button>
+              <div style={buttonstyle}>
+                <button onClick={logout}>
+                  Logout
+                </button>
+              </div>
             ) : (
               <>
                 <Link to="/login">
