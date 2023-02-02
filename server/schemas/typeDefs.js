@@ -22,25 +22,26 @@ const typeDefs = gql`
 
     type Profile {
         _id: ID
-        petName: String!
-        age: String!
-        breed: String!
-        foodBrand: String!
-        humanName: String!
+        petName: String
+        age: String
+        breed: String
+        foodBrand: String
+        humanName: String
+        vetNote: [VetNote]
     }
 
     type VetNote {
       _id: ID
-      appointmentDate: String!
-      primaryConcern: String!
-      onsetDate: String!
+      appointmentDate: String
+      primaryConcern: String
+      onsetDate: String
       otherConcerns: String
       profile: [Profile]
     }
 
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVetNote(vetNote: String!): VetNote
+        addVetNote(appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
         updateUser(username: String!, email: String, password: String): User
   
         login(email: String!, password: String!): Auth
