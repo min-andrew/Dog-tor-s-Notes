@@ -44,12 +44,16 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const style = {
+    paddingTop: '120px'
+  }
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="">
           <DogHeader />
-          <div className="container">
+          <div style={style}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
