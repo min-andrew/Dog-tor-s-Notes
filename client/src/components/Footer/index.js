@@ -9,7 +9,7 @@ const Footer = () => {
         position: 'fixed',
         bottom: 0,
         width: '100%',
-        height: '35px',
+        height: '100px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
