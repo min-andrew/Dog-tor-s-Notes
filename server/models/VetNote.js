@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const vetSchema = new Schema(
   {
@@ -25,7 +26,11 @@ const vetSchema = new Schema(
       type: String,
       required: true
     },
-
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (timestamp) => dateFormat(timestamp),
+    },
     // Not sure what other schemas will be, but this next one will just link the form to the profile of the appropriate pet. Will figure out what data to link once the profile is set up.
   }
 );

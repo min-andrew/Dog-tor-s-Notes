@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_VETNOTES } from '../utils/queries';
@@ -16,25 +17,23 @@ const VetNotes = () => {
           <Header as='h1'>Veterinary Notes</Header>
       </Segment>
 
-
-
-
       <Segment>
       <Header as='h2'>Here is a list of your vet notes:</Header>
-        {loading ? (
+      {loading ? (
           <div>Loading...</div>
         ) : (
-          <ul className="square">
-            {vetNoteList.map((vetNotes) => {
+
+      <ul className="square">
+      {vetNoteList.map((vetNote) => {
               return (
-                <li key={vetNotes._id}>
-                  <Link to={{ pathname: `/vetNotes/${vetNotes._id}` }}>
-                    {vetNotes.appointmentDate}
+                <li key={vetNote._id}>
+                  <Link to={{ pathname: `/vetnotes/${vetNote._id}` }}>
+                    {vetNote.createdAt}
                   </Link>
                 </li>
               );
             })}
-          </ul>
+      </ul>
         )}
       </Segment>
 

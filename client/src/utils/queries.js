@@ -35,6 +35,7 @@ export const QUERY_VETNOTES = gql`
       primaryConcern
       onsetDate
       otherConcerns
+      createdAt
     }
   }
 `;

@@ -43,6 +43,7 @@ export const ADD_VETNOTE = gql`
       primaryConcern
       onsetDate
       otherConcerns
+      createdAt
     }
   }
   `;
