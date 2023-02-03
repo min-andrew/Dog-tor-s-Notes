@@ -24,3 +24,14 @@ export const QUERY_VETNOTES = gql`
     }
   }
 `;
+
+export const QUERY_GET_HABITS = gql`
+  query allHabits {
+    habit {
+      _id
+      habitName
+      frequency
+      complete
+    }
+  }
+`;

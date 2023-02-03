@@ -11,7 +11,7 @@ import { ADD_VETNOTE } from "../utils/mutations";
       otherConcerns: "",
     });
 
-  const [addVetNote, { error, data }] = useMutation(ADD_VETNOTE);
+  const [addVetNote] = useMutation(ADD_VETNOTE);
 
   const handleChange = (e) => {
     // Getting the value and name of the input which triggered the change
