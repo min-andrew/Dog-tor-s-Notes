@@ -58,10 +58,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/profiles/:profileId" element={<Profile />} />
+              <Route path="/profiles" element={<Profile />} />
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
-              <Route path="/vetNotes/:vetNoteId" element={<VetNotes />} />
               <Route path="/todo" element={<Todo />} />
               <Route path="/profiles/test" element={<ProfileTest />} />
             </Routes>
