@@ -111,6 +111,40 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+
+    Mutation: {
+      addHabit: async (parent, args) => {
+        const newHabit = new Habit ({habitName:args.habitName, frequency:args.frequency, complete:args.complete})
+        await newHabit.save()
+        return newHabit
+      },
+      addUser: async (parent, args) => {
+        const user = await User.create(args);
+        const token = signToken(user);
+  
+        return { token, user };
+      },
+      addVetNote: async (parent, args, context) => {
+        console.log(context);
+        if (context.user) {
+          const vetNote = await VetNote.create(args);
+          console.log("Here's the first: ", vetNote)
+          const addedVetNote = await User.findByIdAndUpdate({_id: context.user._id}, { $push: { vetNote: vetNote } }, {new: true});
+          
+          console.log("Here's the added vet note: ", addedVetNote)
+          return vetNote;
+        }
+  
+        throw new AuthenticationError('Not logged in');
+      },
+      updateUser: async (parent, args, context) => {
+        if (context.user) {
+          return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        }
+  
+        throw new AuthenticationError('Not logged in');
+      },
+
     //   updateVetNote: async (parent, { _id, quantity }) => {
     //     const decrement = Math.abs(quantity) * -1;
 

@@ -35,9 +35,10 @@ export const ADD_INFO = gql`
 `;
 
 export const ADD_VETNOTE = gql`
-  mutation addVetNote($vetNoteId: ID!, $appointmentDate: String!, $primaryConcern: String!, $onsetDate: String!) {
-    addVetNote(vetNoteId: $vetNoteId, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate, otherConcerns: $otherConcerns) {
+  mutation addVetNote($petName: String!, $appointmentDate: String!, $primaryConcern: String!, $onsetDate: String!, $otherConcerns: String) {
+    addVetNote(petName: $petName, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate, otherConcerns: $otherConcerns) {
       _id
+      petName
       appointmentDate
       primaryConcern
       onsetDate

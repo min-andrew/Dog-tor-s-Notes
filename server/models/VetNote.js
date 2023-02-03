@@ -2,6 +2,16 @@ const { Schema, model } = require('mongoose');
 
 const vetSchema = new Schema(
   {
+    petName: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    appointmentDate: {
+      type: String,
+      required: true,
+      trim: true
+    },
     primaryConcern: {
       type: String,
       required: true,
@@ -15,17 +25,8 @@ const vetSchema = new Schema(
       type: String,
       required: true
     },
-    symptoms: {
-        type: String,
-        required: true
-    },
+
     // Not sure what other schemas will be, but this next one will just link the form to the profile of the appropriate pet. Will figure out what data to link once the profile is set up.
-    profile: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Profile'
-      }
-    ]
   }
 );
 

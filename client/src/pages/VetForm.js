@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Form, Button, TextArea, Container, Segment } from 'semantic-ui-react'
+import { Form, Button, TextArea, Container, Segment, Header } from 'semantic-ui-react'
 import { useMutation } from "@apollo/client";
 import { ADD_VETNOTE } from "../utils/mutations";
 
   const VetForm = () => {
     const [formState, setFormState] = useState({
+      petName: "",
       appointmentDate: "",
       primaryConcern: "",
       onsetDate: "",
@@ -16,7 +17,7 @@ import { ADD_VETNOTE } from "../utils/mutations";
   const handleChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { name, value } = e.target;
-
+      console.log("From handleChange", name, value);
     setFormState({
       ...formState,
       [name]: value,
@@ -26,20 +27,34 @@ import { ADD_VETNOTE } from "../utils/mutations";
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await addVetNote({
+      const { data, error } = await addVetNote({
         variables: { ...formState },
       });
       
     } catch (e) {
       console.error(e);
-      // TODO: Clear inputs?
     }
+
   }
   return (
     <Container>
       <Segment basic textAlign={"center"}>
-        <Form>
+      <Header as='h1'>Veterinary Notes</Header>
+        <p>Make notes to prepare for your upcoming appointment.<br/>
+          Record notes once the appointment is done.<br/>
+          Save them to your record for future reference.
+        </p>
+        <Form style={{ padding: 20 }}>
             <Form.Group widths='equal'>
+            <Form.Field>
+                <label>Pet Name</label>
+                <input
+                  value={formState.petName}
+                  name="petName"
+                  onChange={handleChange}
+                  placeholder="Your pet name..."
+                />
+                </Form.Field>
 
               <Form.Field>
               <label>Appointment Date</label>

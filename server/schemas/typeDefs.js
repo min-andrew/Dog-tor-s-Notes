@@ -5,7 +5,8 @@ const typeDefs = gql`
         _id: ID!
         username: String
         email: String
-        profile: [ID!]
+        profile: [Profile]
+        vetNote: [VetNote]
     }
 
     type Auth {
@@ -25,11 +26,11 @@ const typeDefs = gql`
 
     type VetNote {
       _id: ID
+      petName: String
       appointmentDate: String
       primaryConcern: String
       onsetDate: String
       otherConcerns: String
-      profile: [Profile]
     }
     
     type Habit {
@@ -48,16 +49,17 @@ const typeDefs = gql`
       getHabits: [Habit]
     }
 
-    type Mutation {
-      addUser(username: String!, email: String!, password: String!): Auth
-      updateUser(username: String!, email: String, password: String): User
-      addVetNote(appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
-      addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
-      updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
-      removeProfile(profileId: ID!): Profile
-      addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
-      login(email: String!, password: String!): Auth
-    }
+      type Mutation {
+        addUser(username: String!, email: String!, password: String!): Auth
+        addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
+        updateUser(username: String!, email: String, password: String): User
+        addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+        updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+        removeProfile(profileId: ID!): Profile
+        addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
+        login(email: String!, password: String!): Auth
+}
+
 `;
 
 // TODO: Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
