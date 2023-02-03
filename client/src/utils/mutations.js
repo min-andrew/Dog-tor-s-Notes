@@ -47,13 +47,52 @@ export const ADD_VETNOTE = gql`
   }
   `;
 
-  export const ADD_HABIT = gql`
-  mutation addHabit($habitName: String!, $frequency: String!, $complete: Boolean!) {
-    addHabit(habitName: $habitName, frequency: $frequency, complete: $complete) {
+export const ADD_PROFILE = gql`
+  mutation addProfile($petName: String!, $age: String!, $breed: String!, $foodBrand: String!, $humanName: String!) {
+    addProfile(petName: $petName, age: $age, breed: $breed, foodBrand: $foodBrand, humanName: $humanName) {
+      _id
+      petName
+      age
+      breed
+      foodBrand
+      humanName
+    }
+  }
+  `;
+
+export const UPDATE_PROFILE = gql`
+  mutation updateProfile($_id: ID!, $petName: String!, $age: String!, $breed: String!, $foodBrand: String!, $humanName: String!) {
+    updateProfile(_id: $_id, petName: $petName, age: $age, breed: $breed, foodBrand: $foodBrand, humanName: $humanName) {
+      _id
+      petName
+      age
+      breed
+      foodBrand
+      humanName
+    }
+  }
+`;
+
+export const REMOVE_PROFILE = gql`
+  mutation removeProfile($profileId: ID!) {
+    removeProfile(profileId: $profileId) {
+      _id
+      petName
+      age
+      breed
+      foodBrand
+      humanName
+    }
+  }
+`;
+
+export const ADD_HABIT = gql`
+  mutation addHabit($Id: ID!, $habitName: String!, $frequency: String!, $complete: Boolean!) {
+    addHabit(Id: $Id, habitName: $habitName, frequency: $frequency, complete: $complete) {
       _id
       habitName
       frequency
       complete
     }
   }
-  `;
+`;

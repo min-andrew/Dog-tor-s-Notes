@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_SINGLE_PROFILE = gql`
-  query allProfiles {
-    profile {
+  query singleProfile($profileId: ID!) {
+    profile(_id: $profileId) {
       _id
       petName
       age
@@ -10,7 +10,20 @@ export const QUERY_SINGLE_PROFILE = gql`
       foodBrand
       humanName
     }
-  }
+  }  
+`;
+
+export const QUERY_PROFILES = gql`
+  query allProfiles {
+    profiles {
+      _id
+      petName
+      age
+      breed
+      foodBrand
+      humanName
+    }
+  }  
 `;
 
 export const QUERY_VETNOTES = gql`

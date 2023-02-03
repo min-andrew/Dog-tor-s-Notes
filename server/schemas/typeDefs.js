@@ -1,14 +1,6 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-
-    type Query {
-    user: User
-    profile: Profile
-    vetNote: VetNote
-    getHabits: [Habit]
-    }
-
     type User {
         _id: ID!
         username: String
@@ -20,11 +12,10 @@ const typeDefs = gql`
     type Auth {
         token: ID!
         user: User
-        profile: [Profile]
       }
 
     type Profile {
-        _id: ID
+        _id: ID!
         petName: String
         age: String
         breed: String
@@ -41,7 +32,7 @@ const typeDefs = gql`
       onsetDate: String
       otherConcerns: String
     }
-
+    
     type Habit {
       _id: ID
       habitName: String
@@ -50,15 +41,25 @@ const typeDefs = gql`
       profile: [Profile]
     }
 
+    type Query {
+      user: User
+      profiles: [Profile]
+      profile(_id: ID!): Profile
+      vetNote: VetNote
+      getHabits: [Habit]
+    }
 
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
         updateUser(username: String!, email: String, password: String): User
+        addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+        updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+        removeProfile(profileId: ID!): Profile
         addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
-  
         login(email: String!, password: String!): Auth
-      }
+}
+
 `;
 
 // TODO: Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
