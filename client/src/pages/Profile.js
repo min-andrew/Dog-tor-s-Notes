@@ -23,7 +23,7 @@ const Profile = () => {
   return (
     <div>
       <h2 className="card-header">
-        {profile.name}'s information
+        {profile.petName}'s information
       </h2>
 
       {profile.info?.length > 0 && <InfoList info={profile.info} />}
