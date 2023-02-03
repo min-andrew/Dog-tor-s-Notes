@@ -16,8 +16,6 @@ import DogHeader from "./components/Header";
 import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
 import VetForm from "./pages/VetForm";
-import Calendar from "./pages/Calendar";
-// Placeholder -- this todo will be its own component and used on another page
 import Todo from "./components/Todo/Todo";
 
 // Construct our main GraphQL API endpoint
