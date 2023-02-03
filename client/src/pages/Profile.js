@@ -3,7 +3,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_PROFILE, UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
 
-const ProfileTest = () => {
+const Profile = () => {
   // State for Add Form
   const [addFormState, setAddFormState] = useState({
     petName: "",
@@ -240,4 +240,4 @@ const ProfileTest = () => {
   );
 };
 
-export default ProfileTest;
+export default Profile;
