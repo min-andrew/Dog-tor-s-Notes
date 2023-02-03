@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { Button, Divider, Container, Header, Form } from "semantic-ui-react";
+import { Button, Container, Header, Form, Segment } from "semantic-ui-react";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -42,57 +42,43 @@ const Login = (props) => {
 
   return (
     <Container>
-      <div className="">
-        <div className="">
-          <Header as="h2" textAlign="center">
-            Login
-          </Header>
-          <div className="">
-            {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <Form onSubmit={handleFormSubmit}>
-                <Form.Field>
-                  <label for="email">Email</label>
-                  <input
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label for="password">Password</label>
-                  <input
-                    placeholder="********"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <Button primary style={{ cursor: "pointer" }} type="submit">
-                    Login
-                  </Button>
-                </Form.Field>
-                <Form.Field>
-                  <Divider horizontal>Or</Divider>
+      <Segment basic textAlign={"center"}>
+        <Header as="h2" textAlign="center">
+          Login
+        </Header>
 
-                  <Button secondary basic type="submit">
-                    <Link to="/signup">Create Account</Link>
-                  </Button>
-                </Form.Field>
-              </Form>
-            )}
-            {error && <div className="">{error.message}</div>}
-          </div>
-        </div>
-      </div>
+        <Form onSubmit={handleFormSubmit}>
+          <Form.Field>
+            <label for="email">Email</label>
+            <input
+              placeholder="Your email"
+              name="email"
+              type="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+          </Form.Field>
+
+          <Form.Field>
+            <label for="password">Password</label>
+            <input
+              placeholder="*****"
+              name="password"
+              type="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+          </Form.Field>
+
+          <Form.Field>
+            <Button primary type="submit">
+              Login
+            </Button>
+          </Form.Field>
+        </Form>
+
+        {error && <div className="">{error.message}</div>}
+      </Segment>
     </Container>
   );
 };
