@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
+import { Form, Button, Container, Header } from 'semantic-ui-react'
 import { ADD_PROFILE, UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
 
@@ -89,7 +90,7 @@ const Profile = () => {
     }
   };
 
-  // Handle button click for Remove Profile
+  // Handle Button click for Remove Profile
   const handleFormRemove = async (id, event) => {
     event.preventDefault();
 
@@ -106,137 +107,165 @@ const Profile = () => {
   };
 
   return (
-    <main className="">
+    <Container className="">
       <div className="">
-        <h4 className="">Test Profile Add</h4>
+        <Header className="">Please Add Your Dog's Profile Here</Header>
         <div className="">
-          <form onSubmit={handleFormSubmitAdd}>
-            <input
-              className=""
-              placeholder="Your pet name"
-              name="petName"
-              type="text"
-              value={addFormState.petName}
-              onChange={handleChangeAdd}
-            />
-            <input
-              className=""
-              placeholder="Your pet age"
-              name="age"
-              type="number"
-              value={addFormState.age}
-              onChange={handleChangeAdd}
-            />
-            <input
-              className=""
-              placeholder="Your pet breed"
-              name="breed"
-              type="text"
-              value={addFormState.breed}
-              onChange={handleChangeAdd}
-            />
-            <input
-              className=""
-              placeholder="Your pet food brand"
-              name="foodBrand"
-              type="text"
-              value={addFormState.foodBrand}
-              onChange={handleChangeAdd}
-            />
-            <input
-              className=""
-              placeholder="Your pet human name"
-              name="humanName"
-              type="text"
-              value={addFormState.humanName}
-              onChange={handleChangeAdd}
-            />
-            <button
-              className=""
-              style={{ cursor: "pointer" }}
-              type="submit"
-            >
-              Add Profile
-            </button>
-          </form>
-          {addError && <div className="">{addError.message}</div>}
-        </div>
-      </div>
-      <br /><br />
-      <div className="">
-        <h4 className="">Test Profile List All and Update</h4>
-        <div className="">
-          {loading ? (
-            <div>Loading profile...</div>
-          ) : (
-            data && data.profiles.map((profile, index) =>
-              <form
-                index={index}
-                itemID={profile._id}
-                onSubmit={(event) => handleFormSubmitUpdate(index, event)}>
+          <Form style={{ padding: 20 }} onSubmit={handleFormSubmitAdd}>
+            <Form.Group widths='equal'>
+              <Form.Field >
                 <input
                   className=""
                   placeholder="Your pet name"
                   name="petName"
                   type="text"
-                  value={updateFormState[index].petName}
-                  onChange={(ev) => handleChangeUpdate(index, ev)}
+                  value={addFormState.petName}
+                  onChange={handleChangeAdd}
                 />
+              </Form.Field>
+              <Form.Field>
                 <input
                   className=""
                   placeholder="Your pet age"
                   name="age"
                   type="number"
-                  value={updateFormState[index].age}
-                  onChange={(ev) => handleChangeUpdate(index, ev)}
+                  value={addFormState.age}
+                  onChange={handleChangeAdd}
                 />
+              </Form.Field>
+              <Form.Field>
                 <input
                   className=""
                   placeholder="Your pet breed"
                   name="breed"
                   type="text"
-                  value={updateFormState[index].breed}
-                  onChange={(ev) => handleChangeUpdate(index, ev)}
+                  value={addFormState.breed}
+                  onChange={handleChangeAdd}
                 />
+              </Form.Field>
+              <Form.Field>
                 <input
                   className=""
                   placeholder="Your pet food brand"
                   name="foodBrand"
                   type="text"
-                  value={updateFormState[index].foodBrand}
-                  onChange={(ev) => handleChangeUpdate(index, ev)}
+                  value={addFormState.foodBrand}
+                  onChange={handleChangeAdd}
                 />
+              </Form.Field>
+              <Form.Field>
                 <input
                   className=""
                   placeholder="Your pet human name"
                   name="humanName"
                   type="text"
-                  value={updateFormState[index].humanName}
-                  onChange={(ev) => handleChangeUpdate(index, ev)}
+                  value={addFormState.humanName}
+                  onChange={handleChangeAdd}
                 />
-                <button
-                  className=""
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Update Profile
-                </button>
-                <button
-                  className=""
-                  style={{ cursor: "pointer" }}
-                  type="button"
-                  onClick={(ev) => handleFormRemove(profile._id, ev)}
-                >
-                  Remove Profile
-                </button>
-              </form>
-            ))
+              </Form.Field>
+
+              <Button
+                className=""
+                style={{ cursor: "pointer" }}
+                type="submit"
+              >
+                Add Profile
+              </Button>
+            </Form.Group>
+          </Form>
+          {addError && <div className="">{addError.message}</div>}
+        </div>
+      </div>
+      <br /><br />
+      <div className="">
+
+        <div className="">
+          {loading ? (
+            <div>Loading profile...</div>
+          ) : (
+            data && data.profiles.length > 0 && 
+            <div>
+              <Header className="">Here is your lovely Dog's Profile List</Header>
+              {data.profiles.map((profile, index) =>
+                <Form style={{ padding: 20 }}
+                  index={index}
+                  itemID={profile._id} onSubmit={(event) => handleFormSubmitUpdate(index, event)}>
+                  <Form.Group>
+                    <Form.Field>
+                      <input
+                        className=""
+                        placeholder="Your pet name"
+                        name="petName"
+                        type="text"
+                        value={updateFormState[index].petName}
+                        onChange={(ev) => handleChangeUpdate(index, ev)}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <input
+                        className=""
+                        placeholder="Your pet age"
+                        name="age"
+                        type="number"
+                        value={updateFormState[index].age}
+                        onChange={(ev) => handleChangeUpdate(index, ev)}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <input
+                        className=""
+                        placeholder="Your pet breed"
+                        name="breed"
+                        type="text"
+                        value={updateFormState[index].breed}
+                        onChange={(ev) => handleChangeUpdate(index, ev)}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <input
+                        className=""
+                        placeholder="Your pet food brand"
+                        name="foodBrand"
+                        type="text"
+                        value={updateFormState[index].foodBrand}
+                        onChange={(ev) => handleChangeUpdate(index, ev)}
+                      />
+                    </Form.Field>
+                    <Form.Field>
+                      <input
+                        className=""
+                        placeholder="Your pet human name"
+                        name="humanName"
+                        type="text"
+                        value={updateFormState[index].humanName}
+                        onChange={(ev) => handleChangeUpdate(index, ev)}
+                      />
+                    </Form.Field>
+                    <Button
+                      className=""
+                      style={{ cursor: "pointer" }}
+                      type="submit"
+                    >
+                      Update Profile
+                    </Button>
+                    <Button
+                      className=""
+                      style={{ cursor: "pointer" }}
+                      type="Button"
+                      onClick={(ev) => handleFormRemove(profile._id, ev)}
+                    >
+                      Remove Profile
+                    </Button>
+                  </Form.Group>
+                </Form>
+              )}
+            </div>)
           }
           {updateError && <div className="">{updateError.message}</div>}
           {removeError && <div className="">{removeError.message}</div>}
         </div>
       </div>
-    </main>
+    </Container>
   );
 };
 
