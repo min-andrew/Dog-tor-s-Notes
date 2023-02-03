@@ -54,7 +54,7 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <Card>
-                            <Link style={cardStyle}gi to="/profiles/:profileId">
+                            <Link style={cardStyle} to="/profile">
                                 <Card.Header>
                                     <Icon enabled name='paw' size='big' />
                                     Profile
