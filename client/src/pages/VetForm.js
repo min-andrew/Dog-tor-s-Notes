@@ -5,6 +5,7 @@ import { ADD_VETNOTE } from "../utils/mutations";
 
   const VetForm = () => {
     const [formState, setFormState] = useState({
+      petName: "",
       appointmentDate: "",
       primaryConcern: "",
       onsetDate: "",
@@ -45,6 +46,15 @@ import { ADD_VETNOTE } from "../utils/mutations";
         </p>
         <Form style={{ padding: 20 }}>
             <Form.Group widths='equal'>
+            <Form.Field>
+                <label>Pet Name</label>
+                <input
+                  value={formState.petName}
+                  name="petName"
+                  onChange={handleChange}
+                  placeholder="Your pet name..."
+                />
+                </Form.Field>
 
               <Form.Field>
               <label>Appointment Date</label>

@@ -21,6 +21,7 @@ const profileSchema = new Schema({
     type: String,
     required: true,
   },
+
 });
 
 const Profile = model("profile", profileSchema);

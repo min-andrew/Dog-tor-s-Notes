@@ -25,6 +25,12 @@ const userSchema = new Schema({
       ref: "Profile",
     },
   ],
+  vetNote: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "VetNote",
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {

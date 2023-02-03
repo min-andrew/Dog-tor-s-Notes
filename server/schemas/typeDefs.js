@@ -14,6 +14,7 @@ const typeDefs = gql`
         username: String
         email: String
         profile: [Profile]
+        vetNote: [VetNote]
     }
 
     type Auth {
@@ -34,11 +35,11 @@ const typeDefs = gql`
 
     type VetNote {
       _id: ID
+      petName: String
       appointmentDate: String
       primaryConcern: String
       onsetDate: String
       otherConcerns: String
-      profile: [Profile]
     }
 
     type Habit {
@@ -52,7 +53,7 @@ const typeDefs = gql`
 
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVetNote(appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
+        addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
         updateUser(username: String!, email: String, password: String): User
         addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
   

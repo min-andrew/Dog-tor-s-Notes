@@ -49,7 +49,7 @@ const resolvers = {
       addHabit: async (parent, args) => {
         const newHabit = new Habit ({habitName:args.habitName, frequency:args.frequency, complete:args.complete})
         await newHabit.save()
-        return newTodo
+        return newHabit
       },
       addUser: async (parent, args) => {
         const user = await User.create(args);
@@ -60,10 +60,11 @@ const resolvers = {
       addVetNote: async (parent, args, context) => {
         console.log(context);
         if (context.user) {
-          const vetNote = new VetNote(args);
-  
-          await User.findByIdAndUpdate(context.user._id, { $push: { vetNotes: vetNote } });
-  
+          const vetNote = await VetNote.create(args);
+          console.log("Here's the first: ", vetNote)
+          const addedVetNote = await User.findByIdAndUpdate({_id: context.user._id}, { $push: { vetNote: vetNote } }, {new: true});
+          
+          console.log("Here's the added vet note: ", addedVetNote)
           return vetNote;
         }
   

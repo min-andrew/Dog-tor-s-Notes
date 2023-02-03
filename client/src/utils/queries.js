@@ -17,6 +17,7 @@ export const QUERY_VETNOTES = gql`
   query allVetNotes {
     vetNote {
       _id
+      petName
       appointmentDate
       primaryConcern
       onsetDate
