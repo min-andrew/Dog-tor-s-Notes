@@ -8,21 +8,20 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
-import Header from "./components/Header";
+import DogHeader from "./components/Header";
 import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
 import VetForm from "./pages/VetForm";
+import Todo from "./components/Todo/Todo";
 import ProfileTest from "./pages/ProfileTest";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
-  
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -45,21 +44,25 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const style = {
+    paddingTop: "120px",
+  };
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="">
-          <Header />
-          <div className="container">
+          <DogHeader />
+          <div style={style}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profiles/:profileId" element={<Profile />} />
               <Route path="/vetNotes" element={<VetNotes />} />
-              <Route path="/vetForm" element={<VetForm/>} />
+              <Route path="/vetForm" element={<VetForm />} />
               <Route path="/vetNotes/:vetNoteId" element={<VetNotes />} />
-
+              <Route path="/todo" element={<Todo />} />
               <Route path="/profiles/test" element={<ProfileTest />} />
             </Routes>
           </div>

@@ -36,7 +36,7 @@ export const ADD_INFO = gql`
 
 export const ADD_VETNOTE = gql`
   mutation addVetNote($vetNoteId: ID!, $appointmentDate: String!, $primaryConcern: String!, $onsetDate: String!) {
-    addInfo(vetNoteId: $vetNoteId, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate) {
+    addVetNote(vetNoteId: $vetNoteId, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate, otherConcerns: $otherConcerns) {
       _id
       appointmentDate
       primaryConcern
@@ -81,6 +81,17 @@ export const REMOVE_PROFILE = gql`
       breed
       foodBrand
       humanName
+    }
+  }
+`;
+
+export const ADD_HABIT = gql`
+  mutation addHabit($Id: ID!, $habitName: String!, $frequency: String!, $complete: Boolean!) {
+    addHabit(Id: $Id, habitName: $habitName, frequency: $frequency, complete: $complete) {
+      _id
+      habitName
+      frequency
+      complete
     }
   }
 `;

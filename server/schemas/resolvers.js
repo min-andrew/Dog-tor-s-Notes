@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Profile, VetNote } = require("../models");
+const { User, Profile, VetNote, Habit } = require("../models");
 const { signToken } = require("../utils/auth");
 // const { GraphQLError } = require("graphql");
 
@@ -18,7 +18,7 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('profile');
+      return await Profile.find(params).populate('profile');
     },
     vetNote: async (parent, { _id }) => {
       return await Product.findById(_id).populate('profile');
@@ -37,6 +37,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    getHabits: async () => {
+      const habits = await Habit.find()
+      return habits
+    },
     profiles: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate('profile');
@@ -51,13 +55,18 @@ const resolvers = {
     },
   },
   Mutation: {
+    addHabit: async (parent, args) => {
+      const newHabit = new Habit({ habitName: args.habitName, frequency: args.frequency, complete: args.complete })
+      await newHabit.save()
+      return newTodo
+    },
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
     },
-    addVetNote: async (parent, { vetNote }, context) => {
+    addVetNote: async (parent, context) => {
       console.log(context);
       if (context.user) {
         const vetNote = new VetNote({ vetNote });
@@ -65,6 +74,13 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, { $push: { vetNotes: vetNote } });
 
         return vetNote;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
       }
 
       throw new AuthenticationError('Not logged in');
@@ -108,15 +124,6 @@ const resolvers = {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const token = signToken(user);
-
-      return { token, user };
     }
   }
 };

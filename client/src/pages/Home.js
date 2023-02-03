@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import FeatureList from '../components/FeatureList';
 
 const Home = () => {
@@ -8,10 +9,9 @@ const Home = () => {
             <div className="">
                 <div className="">
                     <div>
-                        Hello
-                        {/* <Featurelist
+                        <FeatureList
                             title="Summary"
-                        /> */}
+                        />
                     </div>
                 </div>
             </div>

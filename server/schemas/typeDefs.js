@@ -15,46 +15,50 @@ const typeDefs = gql`
 
     type Profile {
         _id: ID!
-        petName: String!
-        age: String!
-        breed: String!
-        foodBrand: String!
-        humanName: String!
+        petName: String
+        age: String
+        breed: String
+        foodBrand: String
+        humanName: String
+        vetNote: [VetNote]
     }
 
     type VetNote {
       _id: ID
-      appointmentDate: String!
-      primaryConcern: String!
-      onsetDate: String!
+      appointmentDate: String
+      primaryConcern: String
+      onsetDate: String
       otherConcerns: String
       profile: [Profile]
     }
-
-    input savedNote {
-      journal: String
-      title: String
-      noteId: String
-      image: String
-      authors: [String]
-    }
     
+    type Habit {
+      _id: ID
+      habitName: String
+      frequency: String
+      complete: Boolean
+      profile: [Profile]
+    }
+
     type Query {
       user: User
       profiles: [Profile]
       profile(_id: ID!): Profile
       vetNote: VetNote
+      getHabits: [Habit]
     }
 
     type Mutation {
       addUser(username: String!, email: String!, password: String!): Auth
-      addVetNote(vetNote: String!): VetNote
+      updateUser(username: String!, email: String, password: String): User
+      addVetNote(appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
       addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
       updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
       removeProfile(profileId: ID!): Profile
+      addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
       login(email: String!, password: String!): Auth
     }
 `;
-//profile: [Profile]
-// Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
+
+// TODO: Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
 module.exports = typeDefs;
