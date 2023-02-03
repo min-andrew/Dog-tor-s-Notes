@@ -17,6 +17,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
 import VetForm from "./pages/VetForm";
+import ProfileTest from "./pages/ProfileTest";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -58,6 +59,8 @@ function App() {
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm/>} />
               <Route path="/vetNotes/:vetNoteId" element={<VetNotes />} />
+
+              <Route path="/profiles/test" element={<ProfileTest />} />
             </Routes>
           </div>
           <Footer />
