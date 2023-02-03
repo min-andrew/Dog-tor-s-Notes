@@ -61,7 +61,6 @@ function App() {
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
               <Route path="/vetNotes/:vetNoteId" element={<VetNotes />} />
-              <Route path="/calendar" element={<Calendar />} />
               <Route path="/todo" element={<Todo />} />
             </Routes>
           </div>
