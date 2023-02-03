@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Profile, VetNote } = require("../models");
+const { User, Profile, VetNote, Habit } = require("../models");
 const { signToken } = require("../utils/auth");
 // const { GraphQLError } = require("graphql");
 
@@ -40,16 +40,24 @@ const resolvers = {
   
         throw new AuthenticationError('Not logged in');
       },
-
+      getHabits: async() => {
+        const habits = await Habit.find()
+        return habits
+      }
     },
     Mutation: {
+      addHabit: async (parent, args) => {
+        const newHabit = new Habit ({habitName:args.habitName, frequency:args.frequency, complete:args.complete})
+        await newHabit.save()
+        return newTodo
+      },
       addUser: async (parent, args) => {
         const user = await User.create(args);
         const token = signToken(user);
   
         return { token, user };
       },
-      addVetNote: async (parent, { vetNote }, context) => {
+      addVetNote: async (parent, context) => {
         console.log(context);
         if (context.user) {
           const vetNote = new VetNote({ vetNote });
@@ -91,6 +99,7 @@ const resolvers = {
   
         return { token, user };
       }
+   
     }
   };
 
