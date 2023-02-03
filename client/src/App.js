@@ -31,7 +31,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      Authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -61,7 +61,7 @@ function App() {
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
               <Route path="/vetNotes/:vetNoteId" element={<VetNotes />} />
-              <Route path="/calendar" element={<Calendar />} />
+              {/* <Route path="/calendar" element={<Calendar />} /> */}
               <Route path="/todo" element={<Todo />} />
             </Routes>
           </div>

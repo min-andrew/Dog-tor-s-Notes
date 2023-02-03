@@ -57,10 +57,10 @@ const resolvers = {
   
         return { token, user };
       },
-      addVetNote: async (parent, context) => {
+      addVetNote: async (parent, args, context) => {
         console.log(context);
         if (context.user) {
-          const vetNote = new VetNote({ vetNote });
+          const vetNote = new VetNote(args);
   
           await User.findByIdAndUpdate(context.user._id, { $push: { vetNotes: vetNote } });
   
