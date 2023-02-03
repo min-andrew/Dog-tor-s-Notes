@@ -1,10 +1,12 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
     type Query {
     user: User
     profile: Profile
     vetNote: VetNote
+    getHabits: [Habit]
     }
 
     type User {
@@ -39,10 +41,20 @@ const typeDefs = gql`
       profile: [Profile]
     }
 
+    type Habit {
+      _id: ID
+      habitName: String
+      frequency: String
+      complete: Boolean
+      profile: [Profile]
+    }
+
+
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         addVetNote(appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
         updateUser(username: String!, email: String, password: String): User
+        addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
   
         login(email: String!, password: String!): Auth
       }
