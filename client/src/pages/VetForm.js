@@ -44,7 +44,7 @@ import { ADD_VETNOTE } from "../utils/mutations";
   return (
     <Container>
       <Segment basic textAlign={"center"}>
-      <Header as='h1'>Veterinary Notes</Header>
+      <Header>Veterinary Notes</Header>
         <p>Make notes to prepare for your upcoming appointment.<br/>
           Record notes once the appointment is done.<br/>
           Save them to your record for future reference.

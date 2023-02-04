@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Button, Container, Segment, Dropdown, Form } from 'semantic-ui-react';
+import { Button, Container, Segment, Form, Dropdown} from 'semantic-ui-react';
 import { ADD_HABIT } from '../../utils/mutations';
+
 
 
 
 const Habits = () => {
  
-    const [habit, setHabit] = useState({
+    const [formState, setFormState] = useState({
         habitName: '',
         frequency: '',
-        complete: ''
     })
 
     const [addHabit] = useMutation(ADD_HABIT)
@@ -19,8 +19,8 @@ const Habits = () => {
         // Getting the value and name of the input which triggered the change
         const { name, value } = e.target;
     
-        setHabit({
-          ...habit,
+        setFormState({
+          ...formState,
           [name]: value,
         });
       };
@@ -28,16 +28,20 @@ const Habits = () => {
       const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-          const { data } = await addHabit({
-            variables: { ...habit },
+          const { data, error } = await addHabit({
+            variables: { ...formState },
           });
-          
+          setFormState({
+            habitName: "",
+            frequency: "",
+
+            });  
         } catch (e) {
           console.error(e);
         }
+       
       }
-
-    const frequencyOptions = [
+      const frequencyOptions = [
         {
           key: 'Daily',
           text: 'Daily',
@@ -59,6 +63,7 @@ const Habits = () => {
             value: 'Yearly',
         },
     ]
+   
 return (
     <Container>
       <Segment basic textAlign={"center"}>
@@ -68,7 +73,6 @@ return (
               <Form.Field >
               <label>Habit</label>
                 <input
-                  value={habit.habitName}
                   name="habitName"
                   onChange={handleChange}
                   placeholder="ex. Walk, Check Up, Feed, etc."
@@ -76,6 +80,7 @@ return (
               </Form.Field>
              
             <Dropdown size='small' id='habitDrop'
+    
                 placeholder='Select Frequency'
                 fluid
                 selection

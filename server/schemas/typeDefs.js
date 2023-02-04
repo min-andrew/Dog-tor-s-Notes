@@ -38,8 +38,6 @@ const typeDefs = gql`
       _id: ID
       habitName: String
       frequency: String
-      complete: Boolean
-      profile: [Profile]
     }
 
     type Query {
@@ -57,7 +55,7 @@ const typeDefs = gql`
         addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
         updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
         removeProfile(profileId: ID!): Profile
-        addHabit(habitName: String!, frequency: String!, complete: Boolean!): Habit
+        addHabit(habitName: String!, frequency: String!): Habit
         login(email: String!, password: String!): Auth
 }
 

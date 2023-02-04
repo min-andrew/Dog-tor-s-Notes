@@ -2,6 +2,7 @@ import React from 'react';
 
 
 import FeatureList from '../components/FeatureList';
+import Habit from '../components/HabitsForm';
 
 const Home = () => {
     return (
@@ -12,6 +13,9 @@ const Home = () => {
                         <FeatureList
                             title="Summary"
                         />
+                    </div>
+                    <div>
+                        <Habit/>
                     </div>
                 </div>
             </div>
