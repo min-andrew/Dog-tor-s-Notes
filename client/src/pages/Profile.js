@@ -183,13 +183,14 @@ const Profile = () => {
           {loading ? (
             <div>Loading profile...</div>
           ) : (
-            data && data.profiles.length > 0 && 
+            data && data.profiles && data.profiles.length > 0 && 
             <div>
               <Header className="">Here is your lovely Dog's Profile List</Header>
               {data.profiles.map((profile, index) =>
                 <Form style={{ padding: 20 }}
                   index={index}
-                  itemID={profile._id} onSubmit={(event) => handleFormSubmitUpdate(index, event)}>
+                  key={profile._id} 
+                  onSubmit={(event) => handleFormSubmitUpdate(index, event)}>
                   <Form.Group>
                     <Form.Field>
                       <input
@@ -251,7 +252,7 @@ const Profile = () => {
                     <Button
                       className=""
                       style={{ cursor: "pointer" }}
-                      type="Button"
+                      type="button"
                       onClick={(ev) => handleFormRemove(profile._id, ev)}
                     >
                       Remove Profile
