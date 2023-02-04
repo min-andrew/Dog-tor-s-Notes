@@ -88,12 +88,11 @@ export const REMOVE_PROFILE = gql`
 `;
 
 export const ADD_HABIT = gql`
-  mutation addHabit($Id: ID!, $habitName: String!, $frequency: String!, $complete: Boolean!) {
-    addHabit(Id: $Id, habitName: $habitName, frequency: $frequency, complete: $complete) {
+  mutation addHabit($habitName: String!, $frequency: String!) {
+    addHabit(habitName: $habitName, frequency: $frequency) {
       _id
       habitName
       frequency
-      complete
     }
   }
 `;

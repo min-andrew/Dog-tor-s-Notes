@@ -46,7 +46,6 @@ export const QUERY_GET_HABITS = gql`
       _id
       habitName
       frequency
-      complete
     }
   }
 `;

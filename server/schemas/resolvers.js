@@ -7,21 +7,7 @@ const resolvers = {
       profile: async () => {
         return await Profile.find();
       },
-      vetNote: async (parent, { profile, petName }) => {
-        const params = {};
-  
-        if (profile) {
-          params.profile = profile;
-        }
-  
-        if (petName) {
-          params.petName = {
-            $regex: petName
-          };
-        }
-  
-        return await Profile.find(params).populate('profile');
-      },
+
       vetNote: async (parent, { username }) => {
         const params = username ? { username } : {};
         return VetNote.find(params).sort({ createdAt: -1 });
@@ -47,14 +33,26 @@ const resolvers = {
     },
     Mutation: {
       addHabit: async (parent, args) => {
-        const newHabit = new Habit ({habitName:args.habitName, frequency:args.frequency, complete:args.complete})
+        const newHabit = new Habit ({habitName:args.habitName, frequency:args.frequency})
         await newHabit.save()
-        return newHabit
+        console.log('The new habit has been added: ', newHabit)
+        return newHabit     
       },
+
+      addHabit: async (parent, args, context) => {
+        console.log(context);
+        if (context.user) {
+          const newHabit = await Habit.create(args);
+          const addedHabit = await User.findByIdAndUpdate({_id: context.user._id}, { $push: { newHabit: newHabit } }, {new: true});
+          console.log('The new habit has been added: ', newHabit)
+          return newHabit;
+        }
+        throw new AuthenticationError('Not logged in');
+      },
+
       addUser: async (parent, args) => {
         const user = await User.create(args);
         const token = signToken(user);
-  
         return { token, user };
       },
       addVetNote: async (parent, args, context) => {

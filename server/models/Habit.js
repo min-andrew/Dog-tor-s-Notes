@@ -9,10 +9,6 @@ const habitSchema = new Schema({
             type: String,
             required: true,
         },
-        complete: {
-            type: Boolean,
-            required: true
-        }
     });
     
 
