@@ -31,6 +31,7 @@ const typeDefs = gql`
       primaryConcern: String
       onsetDate: String
       otherConcerns: String
+      createdAt: String
     }
     
     type Habit {

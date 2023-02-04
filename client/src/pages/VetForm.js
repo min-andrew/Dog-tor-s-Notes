@@ -30,11 +30,16 @@ import { ADD_VETNOTE } from "../utils/mutations";
       const { data, error } = await addVetNote({
         variables: { ...formState },
       });
-      
+      setFormState({
+      petName: "",
+      appointmentDate: "",
+      primaryConcern: "",
+      onsetDate: "",
+      otherConcerns: "",
+      }); 
     } catch (e) {
       console.error(e);
     }
-
   }
   return (
     <Container>

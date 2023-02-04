@@ -22,8 +22,9 @@ const resolvers = {
   
         return await Profile.find(params).populate('profile');
       },
-      vetNote: async (parent, { _id }) => {
-        return await Product.findById(_id).populate('profile');
+      vetNote: async (parent, { username }) => {
+        const params = username ? { username } : {};
+        return VetNote.find(params).sort({ createdAt: -1 });
       },
       user: async (parent, args, context) => {
         if (context.user) {
@@ -60,13 +61,9 @@ const resolvers = {
         console.log(context);
         if (context.user) {
           const vetNote = await VetNote.create(args);
-          console.log("Here's the first: ", vetNote)
           const addedVetNote = await User.findByIdAndUpdate({_id: context.user._id}, { $push: { vetNote: vetNote } }, {new: true});
-
-          console.log("Here's the added vet note: ", addedVetNote)
           return vetNote;
         }
-
         throw new AuthenticationError('Not logged in');
       },
       updateUser: async (parent, args, context) => {
