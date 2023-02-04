@@ -54,6 +54,17 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <Card>
+                            <Link style={cardStyle} gi to="/injury">
+                                <Card.Header>
+                                    <Icon enabled name='camera' size='big' />
+                                    Injury Library
+                                </Card.Header>
+                                <Card.Meta>
+                                    Upload photos of your pet's injury!
+                                </Card.Meta>
+                            </Link>
+                        </Card>
+                        <Card>
                             <Link style={cardStyle} to="/profile">
                                 <Card.Header>
                                     <Icon enabled name='paw' size='big' />

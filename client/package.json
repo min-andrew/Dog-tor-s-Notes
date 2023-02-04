@@ -2,7 +2,7 @@
   "name": "project-3",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://127.0.0.1:3001",
+  "proxy": "http://127.0.0.1:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,7 +14,8 @@
     "jwt-decode": "^3.1.2",
     "@apollo/client": "^3.5.8",
     "react-router-dom": "^6.2.1",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "cloudinary-react": "^1.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

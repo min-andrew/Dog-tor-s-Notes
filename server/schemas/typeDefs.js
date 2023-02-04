@@ -40,12 +40,17 @@ const typeDefs = gql`
       frequency: String
     }
 
+    type Environment {
+      cloudinaryApiName: String
+    }
+
     type Query {
       user: User
       profiles: [Profile]
       profile(_id: ID!): Profile
       vetNote: VetNote
       getHabits: [Habit]
+      environment: Environment
     }
 
       type Mutation {
