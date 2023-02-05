@@ -49,3 +49,11 @@ export const QUERY_GET_HABITS = gql`
     }
   }
 `;
+
+export const QUERY_GET_ENV = gql`
+  { 
+    environment {
+      cloudinaryApiName
+    }
+  }
+`;

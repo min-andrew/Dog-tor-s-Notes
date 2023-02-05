@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/min-andrew/Project-3#readme",
   "dependencies": {
+    "cloudinary-react": "^1.8.1",
     "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4"
   }
