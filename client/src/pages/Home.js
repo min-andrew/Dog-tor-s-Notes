@@ -1,26 +1,25 @@
-import React from 'react';
+import React from "react";
 
-
-import FeatureList from '../components/FeatureList';
-import Habit from '../components/HabitsForm';
+import Habit from "../components/HabitsForm";
+import Login from "../components/Login/Login";
+import Signup from "../components/Signup/Signup";
 
 const Home = () => {
-    return (
-        <main>
-            <div className="">
-                <div className="">
-                    <div>
-                        <FeatureList
-                            title="Summary"
-                        />
-                    </div>
-                    <div>
-                        <Habit/>
-                    </div>
-                </div>
-            </div>
-        </main>
-    );
+  return (
+    <main>
+      <div className="">
+        <div className="">
+          <div>
+            <Login />
+            <Signup />
+          </div>
+          <div>
+            <Habit />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 };
 
 export default Home;
