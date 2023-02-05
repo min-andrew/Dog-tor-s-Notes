@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
-import { Button, Container, Header, Form, Segment } from "semantic-ui-react";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+import {
+  Button,
+  Container,
+  Header,
+  Form,
+  Segment,
+  Divider,
+} from "semantic-ui-react";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -49,7 +55,7 @@ const Login = (props) => {
 
         <Form onSubmit={handleFormSubmit}>
           <Form.Field>
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               placeholder="Your email"
               name="email"
@@ -60,7 +66,7 @@ const Login = (props) => {
           </Form.Field>
 
           <Form.Field>
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               placeholder="*****"
               name="password"
@@ -76,8 +82,15 @@ const Login = (props) => {
             </Button>
           </Form.Field>
         </Form>
+        <Form.Field>
+          <Divider horizontal>Or</Divider>
 
-        {error && <div className="">{error.message}</div>}
+          <Button primary basic type="submit">
+            Create Account
+          </Button>
+        </Form.Field>
+
+        {error && <div>{error.message}</div>}
       </Segment>
     </Container>
   );
