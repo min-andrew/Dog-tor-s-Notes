@@ -2,9 +2,7 @@ import React from "react";
 import FeatureList from "../components/FeatureList";
 import Habit from "../components/HabitsForm";
 import Login from "../components/Login/Login";
-import Signup from "../components/Signup/Signup";
 import Auth from "../utils/auth";
-
 
 const Home = () => {
     return (
@@ -21,7 +19,6 @@ const Home = () => {
                     ) : (
                         <div>
                             <Login />
-                            <Signup />
                         </div>
                     )}
                 </div>

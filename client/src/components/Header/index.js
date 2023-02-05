@@ -47,8 +47,8 @@ const DogHeader = () => {
               </div>
             ) : (
               <>
-                <Link to="/">Login</Link>
-                <Link to="/">Signup</Link>
+                {/* <Link to="/">Login</Link>
+                <Link to="/">Signup</Link> */}
               </>
             )}
           </Header>
