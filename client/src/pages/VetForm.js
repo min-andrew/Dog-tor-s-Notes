@@ -42,7 +42,7 @@ const containerStyle = {
 
 const cardStyle = {
     margin: '20px',
-    display: 'flex',
+    display: 'block',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
@@ -50,10 +50,10 @@ const cardStyle = {
 }
 
 const formStyle = {
-    display: 'block',
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
+    width: '500px',
     padding: 15 
 }
  const labelStyle = {
@@ -88,7 +88,7 @@ const formStyle = {
           Record notes once the appointment is done.<br/>
           Save them to your record for future reference.
         </p>
-        <Card style={cardStyle} className='vet-card'>
+        <div style={cardStyle} className='vet-div'>
         <Form style={formStyle}>
             <Form.Group widths='equal'>
             <Form.Field className='vet-field'>
@@ -137,10 +137,9 @@ const formStyle = {
                   name="otherConcerns"
                   onChange={handleChange} />         
             </Form.Group>
-            <Button circular icon='paw' type='submit' onClick={handleFormSubmit} className='paw-button'></Button> 
-       
         </Form>
-      </Card>
+        <Button circular icon='paw' type='submit' onClick={handleFormSubmit} className='paw-button'></Button> 
+      </div>
 
       </Container>
   );
