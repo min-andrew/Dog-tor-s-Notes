@@ -7,11 +7,11 @@ import Auth from "../utils/auth";
 const Home = () => {
     return (
         <main>
+
             <div className="">
                 <div className="">
                     {Auth.loggedIn() ? (
                         <div>
-                            <Habit />
                             <FeatureList
                                 title="Summary"
                             />
