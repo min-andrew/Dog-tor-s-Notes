@@ -91,7 +91,7 @@ const formStyle = {
         <div style={cardStyle} className='vet-div'>
         <Form style={formStyle}>
             <Form.Group widths='equal'>
-            <Form.Field className='vet-field'>
+            <Form.Field className='vet-field' required>
                 <label>Pet Name</label>
                 <input 
                   value={formState.petName}
@@ -101,7 +101,7 @@ const formStyle = {
                 />
                 </Form.Field>
 
-              <Form.Field className='vet-field'>
+              <Form.Field className='vet-field' required>
               <label>Appointment Date</label>
                 <input
                   value={formState.appointmentDate}
@@ -112,7 +112,7 @@ const formStyle = {
                 />
               </Form.Field>
 
-              <Form.Field className='vet-field'>
+              <Form.Field className='vet-field' required>
                 <label>Primary Concern</label>
                 <input
                   value={formState.primaryConcern}
@@ -122,7 +122,7 @@ const formStyle = {
                 />
                 </Form.Field>
 
-                <Form.Field className='vet-field'>
+                <Form.Field className='vet-field' required>
                 <label>Date of Onset</label>
                 <input
                   value={formState.onsetDate}
