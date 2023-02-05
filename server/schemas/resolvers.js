@@ -30,6 +30,18 @@ const resolvers = {
       const habits = await Habit.find()
       return habits
     },
+    profiles: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate('profile');
+
+        return user.profile;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    profile: async (parent, { _id }) => {
+      return await Profile.findById(_id);
+    },
     environment: async () => {
       return {
         cloudinaryApiName: process.env.REACT_APP_CLOUDINARY_API_NAME
@@ -75,6 +87,30 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    addProfile: async (parent, args, context) => {
+      console.log(context);
+      if (context.user) {
+        const newProfile = await Profile.create(args);
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { profile: newProfile._id } });
+
+        return newProfile;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateProfile: async (parent, args, context) => {
+      if (context.user) {
+        return await Profile.findByIdAndUpdate(args._id, args);
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    removeProfile: async (parent, { profileId }, context) => {
+      if (context.user) {
+        return await Profile.findByIdAndRemove(profileId);
+      }
     },
     //   updateVetNote: async (parent, { _id, quantity }) => {
     //     const decrement = Math.abs(quantity) * -1;
