@@ -10,10 +10,16 @@ import {
   Segment,
   Divider,
 } from "semantic-ui-react";
+import Signup from "../Signup/Signup";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [hideState, setHideState] = useState({
+    signin: {}, create: {
+      display: "none"
+    }
+  })
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -46,53 +52,89 @@ const Login = (props) => {
     });
   };
 
+  const hider = async () => {
+    setHideState({
+      signin: {
+        display: "none"
+      },
+      create: {
+        display: "block"
+      }
+    })
+  }
+
+  const shower = async () => {
+    setHideState({
+      signin: {
+        display: "block"
+      },
+      create: {
+        display: "none"
+      }
+    })
+  }
+
   return (
-    <Container>
-      <Segment basic textAlign={"center"}>
-        <Header as="h2" textAlign="center">
-          Login
-        </Header>
+    <div>
+      <Container style={hideState.signin}>
+        <Segment basic textAlign={"center"}>
+          <Header as="h2" textAlign="center">
+            Login
+          </Header>
 
-        <Form onSubmit={handleFormSubmit}>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Field>
+              <label htmlFor="email">Email</label>
+              <input
+                placeholder="Your email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <label htmlFor="password">Password</label>
+              <input
+                placeholder="*****"
+                name="password"
+                type="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <Button primary type="submit">
+                Login
+              </Button>
+            </Form.Field>
+          </Form>
           <Form.Field>
-            <label htmlFor="email">Email</label>
-            <input
-              placeholder="Your email"
-              name="email"
-              type="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
+            <Divider horizontal>Or</Divider>
+
+            <Button primary basic onClick={hider}>
+              Create Account
+            </Button>
           </Form.Field>
 
+          {error && <div>{error.message}</div>}
+        </Segment>
+      </Container>
+      <div style={hideState.create}>
+        <Signup />
+        <Segment basic textAlign={"center"}>
           <Form.Field>
-            <label htmlFor="password">Password</label>
-            <input
-              placeholder="*****"
-              name="password"
-              type="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-          </Form.Field>
+            <Divider horizontal>Or</Divider>
 
-          <Form.Field>
-            <Button primary type="submit">
+            <Button primary basic onClick={shower}>
               Login
             </Button>
           </Form.Field>
-        </Form>
-        <Form.Field>
-          <Divider horizontal>Or</Divider>
-
-          <Button primary basic type="submit">
-            Create Account
-          </Button>
-        </Form.Field>
-
-        {error && <div>{error.message}</div>}
-      </Segment>
-    </Container>
+        </Segment>
+      </div>
+    </div>
   );
 };
 
