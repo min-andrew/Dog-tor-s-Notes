@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { Form, Button, Container, Header } from 'semantic-ui-react'
+import { Form, Button, Container, Header, Card } from 'semantic-ui-react'
 import { ADD_PROFILE, UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
 
@@ -106,24 +106,51 @@ const Profile = () => {
     }
   };
 
+const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    flexDirection: 'column',
+    textAlign: 'center'
+}
+
+const cardStyle = {
+    margin: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    textAlign: 'center'
+}
+
+const formStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '500px',
+    padding: 15 
+}
   return (
-    <Container className="">
-      <div className="">
+    <Container style={containerStyle}>
+      <div className="profile-page">
         <Header className="">Please Add Your Dog's Profile Here</Header>
-        <div className="">
-          <Form style={{ padding: 20 }} onSubmit={handleFormSubmitAdd}>
+        <div style={cardStyle}>
+          <Form style={formStyle} onSubmit={handleFormSubmitAdd}>
             <Form.Group widths='equal'>
               <Form.Field >
-                <input
-                  className=""
-                  placeholder="Your pet name"
-                  name="petName"
-                  type="text"
-                  value={addFormState.petName}
-                  onChange={handleChangeAdd}
-                />
+                <label>Pet Name</label>
+                  <input
+                    className=""
+                    placeholder="Your pet name"
+                    name="petName"
+                    type="text"
+                    value={addFormState.petName}
+                    onChange={handleChangeAdd}
+                  />
               </Form.Field>
               <Form.Field>
+              <label>Pet Age</label>
                 <input
                   className=""
                   placeholder="Your pet age"
@@ -134,6 +161,7 @@ const Profile = () => {
                 />
               </Form.Field>
               <Form.Field>
+              <label>Pet Breed</label>
                 <input
                   className=""
                   placeholder="Your pet breed"
@@ -144,6 +172,7 @@ const Profile = () => {
                 />
               </Form.Field>
               <Form.Field>
+              <label>Pet Food Brand</label>
                 <input
                   className=""
                   placeholder="Your pet food brand"
@@ -154,6 +183,7 @@ const Profile = () => {
                 />
               </Form.Field>
               <Form.Field>
+              <label>Name of Human</label>
                 <input
                   className=""
                   placeholder="Your pet human name"
@@ -164,8 +194,8 @@ const Profile = () => {
                 />
               </Form.Field>
 
-              <Button
-                className=""
+              <Button primary centered
+                className="profile-btn"
                 style={{ cursor: "pointer" }}
                 type="submit"
               >
@@ -242,15 +272,14 @@ const Profile = () => {
                         onChange={(ev) => handleChangeUpdate(index, ev)}
                       />
                     </Form.Field>
-                    <Button
-                      className=""
-                      style={{ cursor: "pointer" }}
+                    <Button                      className="profile-btn"
+                      style={{ cursor: "pointer", backgroundColor: 'red'}}
                       type="submit"
                     >
                       Update Profile
                     </Button>
                     <Button
-                      className=""
+                      className="profile-btn"
                       style={{ cursor: "pointer" }}
                       type="button"
                       onClick={(ev) => handleFormRemove(profile._id, ev)}
