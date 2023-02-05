@@ -88,12 +88,12 @@ const formStyle = {
           Record notes once the appointment is done.<br/>
           Save them to your record for future reference.
         </p>
-        <Card centered style={cardStyle} className='vet-card'>
-        <Form centered style={formStyle}>
+        <Card style={cardStyle} className='vet-card'>
+        <Form style={formStyle}>
             <Form.Group widths='equal'>
             <Form.Field className='vet-field'>
                 <label>Pet Name</label>
-                <input
+                <input 
                   value={formState.petName}
                   name="petName"
                   onChange={handleChange}
@@ -133,7 +133,7 @@ const formStyle = {
                 </Form.Field>  
 
                 <label style={labelStyle}>Other Concerns</label>
-                <TextArea centered rows={4} placeholder="Diet, new behaviors, dental issues, etc." value={formState.otherConcerns}
+                <TextArea rows={4} placeholder="Diet, new behaviors, dental issues, etc." value={formState.otherConcerns}
                   name="otherConcerns"
                   onChange={handleChange} />         
             </Form.Group>
