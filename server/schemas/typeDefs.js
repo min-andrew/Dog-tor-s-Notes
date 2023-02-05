@@ -54,7 +54,7 @@ const typeDefs = gql`
 
       type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String, otherConcerns: String): VetNote
+        addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
         updateUser(username: String!, email: String, password: String): User
         addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
         updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
@@ -65,5 +65,4 @@ const typeDefs = gql`
 
 `;
 
-// TODO: Added the VetNotes, but left the rest . Wasn't clear about linking to the profile. Come back to this.
 module.exports = typeDefs;
