@@ -21,7 +21,6 @@ const typeDefs = gql`
         breed: String
         foodBrand: String
         humanName: String
-        vetNote: [VetNote]
     }
 
     type VetNote {
