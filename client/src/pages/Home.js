@@ -1,8 +1,8 @@
 import React from "react";
 
-import FeatureList from "../components/FeatureList";
 import Habit from "../components/HabitsForm";
 import Login from "../components/Login/Login";
+import Signup from "../components/Signup/Signup";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
         <div className="">
           <div>
             <Login />
-            {/* <FeatureList title="Summary" /> */}
+            <Signup />
           </div>
           <div>
             <Habit />
