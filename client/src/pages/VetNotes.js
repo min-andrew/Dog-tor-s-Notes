@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_VETNOTES } from '../utils/queries';
-import { Button, Container, Segment, Header } from 'semantic-ui-react'
+import { Button, Container, Header } from 'semantic-ui-react'
 
 const VetNotes = () => {
   const { loading, data } = useQuery(QUERY_VETNOTES, {
@@ -12,13 +12,12 @@ const VetNotes = () => {
   const vetNoteList = data?.vetNotes || [];
 
   return (
-    <Container>
-      <Segment basic textAlign={"center"}>
-          <Header>Veterinary Notes</Header>
-      </Segment>
+    <Container className='vet-notes-container'>
+      
+          <Header textAlign={"center"}>Veterinary Notes</Header>
+      
 
-      <Segment basic textAlign={"center"}>
-      <Header>Here is a list of your vet notes:</Header>
+         <Header className='vet-h2' textAlign={"center"} >Here is a list of your vet notes:</Header>
       {loading ? (
           <div>Loading...</div>
         ) : (
@@ -35,14 +34,17 @@ const VetNotes = () => {
             })}
       </ul>
         )}
-      </Segment>
+  
 
-      <Segment basic textAlign={"center"}>
-        <Header>Ready to create a new Vet Note?</Header>
+
+        <Header textAlign={"center"}>Ready to create a new Vet Note?</Header>
         <Link to="/vetForm">
-          <Button primary>Create Vet Note!</Button>
+          <Button primary className='vet-note-nav-btns'>Create Vet Note!</Button>
         </Link>
-        </Segment>
+        <Link to="/">
+          <Button primary className='vet-note-nav-btns'>Back Home</Button>
+        </Link>
+
         </Container>
   );
 };
