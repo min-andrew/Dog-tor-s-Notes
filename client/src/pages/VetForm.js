@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, TextArea, Container, Header, Card} from 'semantic-ui-react'
+import { Form, Button, TextArea, Container, Header} from 'semantic-ui-react'
 import { useMutation } from "@apollo/client";
 import { ADD_VETNOTE } from "../utils/mutations";
 
@@ -12,7 +12,7 @@ import { ADD_VETNOTE } from "../utils/mutations";
       otherConcerns: "",
     });
 
-  const [addVetNote] = useMutation(ADD_VETNOTE);
+  const [addVetNote, { error, data }] = useMutation(ADD_VETNOTE);
 
   const handleChange = (e) => {
     // Getting the value and name of the input which triggered the change
@@ -93,12 +93,12 @@ const formStyle = {
             <Form.Group widths='equal'>
             <Form.Field className='vet-field' required>
                 <label>Pet Name</label>
-                <input 
+                <Form.Input
                   value={formState.petName}
                   name="petName"
                   onChange={handleChange}
                   placeholder="Your pet name..."
-                />
+                                  />
                 </Form.Field>
 
               <Form.Field className='vet-field' required>
@@ -140,7 +140,7 @@ const formStyle = {
         </Form>
         <Button circular icon='paw' type='submit' onClick={handleFormSubmit} className='paw-button'></Button> 
       </div>
-
+      <div>{error && <div>{error.message}</div>}</div>
       </Container>
   );
 };

@@ -67,3 +67,10 @@ label {
   margin-top: 20px !important;
 }
 
+.checkBox {
+  flex-direction: row;
+}
+
+.habit-checks {
+  display: block;
+}

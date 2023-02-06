@@ -1,6 +1,5 @@
 import React from "react";
 import FeatureList from "../components/FeatureList";
-import Habit from "../components/HabitsForm";
 import Login from "../components/Login/Login";
 import Auth from "../utils/auth";
 

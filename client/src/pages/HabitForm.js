@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Button, Container, Segment, Form, Checkbox} from 'semantic-ui-react';
+import { Button, Container, Form, Checkbox, Header} from 'semantic-ui-react';
 import { ADD_HABIT } from '../utils/mutations';
 
 const HabitForm = () => {
@@ -38,11 +38,43 @@ const HabitForm = () => {
         }
        
       }
-   
+      const headerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    }
+    
+    const containerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        flexDirection: 'column',
+        textAlign: 'center'
+    }
+      
+    const formStyle = {
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '500px',
+        padding: 15 
+    }
+     const labelStyle = {
+      fontSize: '.92857143em',
+      fontWeight: 700,
+
+     }
 return (
-    <Container>
-      <Segment basic textAlign={"center"}>
-        <Form>
+    <Container style={containerStyle}>
+
+      <Header style={headerStyle}>Habit Tracker</Header>
+        <p className='vet-text'>Is there anything you'd like to remember to do more often?<br/>
+          Daily walks? Medication schedule? Feedings?<br/>
+          Create the habit below and see reminders on your homepage.
+        </p>
+        <Form style={formStyle}>
             <Form.Group widths='equal' heights='equal'>
 
               <Form.Field >
@@ -53,9 +85,9 @@ return (
                   placeholder="ex. Walk, Check Up, Feed, etc."
                 />
               </Form.Field>
-             
+     <div className='checkBox'>     
               <Form.Field>
-        <Checkbox
+        <Checkbox className='habit-checks' style={labelStyle}
           radio
           label='Daily'
           name='frequency'
@@ -65,7 +97,7 @@ return (
         />
       </Form.Field>
       <Form.Field>
-        <Checkbox
+        <Checkbox style={labelStyle}
           radio
           label='Weekly'
           name='frequency'
@@ -74,12 +106,13 @@ return (
           onChange={handleChange}
         />
       </Form.Field>
+      </div> 
             </Form.Group>
             </Form>
 
-            <Button circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
+            <Button className='paw-button' circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
 
-      </Segment>
+
     </Container>
   );
 };

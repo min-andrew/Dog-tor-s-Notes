@@ -29,17 +29,15 @@ const FeatureList = ({ title }) => {
             <div style={bodyStyle}>
                 <div >
                     <div>
-                        <Card>
-                            <Link style={cardStyle} to="/VetForm">
-                                <Card.Content>
-                                    <Card.Header>
-                                        <Icon enabled name='edit' size='big' />
-                                        Vet Form
-                                    </Card.Header>
-                                    <Card.Meta>
-                                        Add Information about your next vet visit!
-                                    </Card.Meta>
-                                </Card.Content>
+                    <Card>
+                            <Link style={cardStyle} to="/profile">
+                                <Card.Header>
+                                    <Icon enabled name='paw' size='big' />
+                                    Profile
+                                </Card.Header>
+                                <Card.Meta>
+                                    Check out your pet's profile here!
+                                </Card.Meta>
                             </Link>
                         </Card>
                         <Card>
@@ -65,16 +63,17 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <Card>
-                            <Link style={cardStyle} to="/profile">
+                            <Link style={cardStyle} to="/habitForm">
                                 <Card.Header>
-                                    <Icon enabled name='paw' size='big' />
-                                    Profile
+                                    <Icon enabled name='check circle' size='big' />
+                                    Habit Tracker
                                 </Card.Header>
                                 <Card.Meta>
-                                    Check out your pet's profile here!
+                                    Create (and stick to) good habits.
                                 </Card.Meta>
                             </Link>
                         </Card>
+  
                     </div>
                 </div>
             </div>
