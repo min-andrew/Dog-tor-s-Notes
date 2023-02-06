@@ -46,8 +46,7 @@ const typeDefs = gql`
     type Query {
       user: User
       profiles: [Profile]
-      profile(_id: ID!): Profile
-      vetNote: VetNote
+      vetNotes: [VetNote]
       getHabits: [Habit]
       environment: Environment
     }
