@@ -7,20 +7,26 @@ const HabitForm = () => {
  
     const [formState, setFormState] = useState({
         habitName: '',
-
+        daily: false,
+        weekly: false,
+        monthly: false,
+        yearly: false
     })
-
-    const [addHabit] = useMutation(ADD_HABIT)
+    
+       const [addHabit] = useMutation(ADD_HABIT)
     
     const handleChange = (e) => {
-        // Getting the value and name of the input which triggered the change
-        const { name, value } = e.target;
+
+        const { name, value, type, checked } = e.target;
     
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-      };
+        setFormState( (prevState) => {
+          return {
+          ...prevState,
+          [name]: type === 'checkbox' ? checked : value
+          }
+          })
+          }
+         
 
       const handleFormSubmit = async (e) => {
         e.preventDefault();
@@ -30,43 +36,46 @@ const HabitForm = () => {
           });
           setFormState({
             habitName: "",
-
-
+            daily: false,
+            weekly: false,
+            monthly: false,
+            yearly: false
             });  
         } catch (e) {
           console.error(e);
         }
-       
       }
+
       const headerStyle = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%'
-    }
+      }
     
-    const containerStyle = {
+      const containerStyle = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         flexDirection: 'column',
         textAlign: 'center'
-    }
+      }
       
-    const formStyle = {
+      const formStyle = {
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '500px',
         padding: 15 
-    }
-     const labelStyle = {
-      fontSize: '.92857143em',
-      fontWeight: 700,
+      }
+     
+       const labelStyle = {
+        fontSize: '.92857143em',
+        fontWeight: 700,
+      }
 
-     }
-return (
+  return (
     <Container style={containerStyle}>
 
       <Header style={headerStyle}>Habit Tracker</Header>
@@ -81,29 +90,59 @@ return (
               <label>Habit</label>
                 <input
                   name="habitName"
-                  onChange={handleChange}
+                  type="text"
+                  onInput={handleChange}
                   placeholder="ex. Walk, Check Up, Feed, etc."
+                  value={formState.habitName}
                 />
               </Form.Field>
-     <div className='checkBox'>     
+
+     <div className='checkBox'>  
               <Form.Field>
-        <Checkbox className='habit-checks' style={labelStyle}
-          radio
+        <Checkbox radio htmlFor='daily' className='habit-checks' style={labelStyle}
+      
           label='Daily'
-          name='frequency'
-          value={formState.frequency}
-          checked={formState === 'daily'}
-          onChange={handleChange}
+          type='checkbox'
+          name="checkboxRadioGroup"
+          id='daily' 
+          checked={formState.daily}
+          onChange={(e, data) => setFormState(data.formState)}
         />
       </Form.Field>
+
       <Form.Field>
-        <Checkbox style={labelStyle}
-          radio
-          label='Weekly'
-          name='frequency'
-          value={formState.frequency}
-          checked={formState === 'Weekly'}
-          onChange={handleChange}
+      <Checkbox radio htmlFor='weekly' className='habit-checks' style={labelStyle}
+      
+      label='Weekly'
+      type='checkbox'
+      name="checkboxRadioGroup"
+      id='weekly' 
+      checked={formState.weekly}
+      onChange={(e, data) => setFormState(data.formState)}
+        />
+      </Form.Field>
+
+      <Form.Field>
+      <Checkbox radio htmlFor='monthly' className='habit-checks' style={labelStyle}
+      
+      label='Monthly'
+      type='checkbox'
+      name="checkboxRadioGroup"
+      id='monthly' 
+      checked={formState.monthly}
+      onChange={(e, data) => setFormState(data.formState)}
+        />
+      </Form.Field>
+
+      <Form.Field>
+      <Checkbox radio htmlFor='yearly' className='habit-checks' style={labelStyle}
+      
+      label='Yearly'
+      type='checkbox'
+      name="checkboxRadioGroup"
+      id='yearly' 
+      checked={formState.yearly}
+      onChange={(e, data) => setFormState(data.formState)}
         />
       </Form.Field>
       </div> 
@@ -111,8 +150,6 @@ return (
             </Form>
 
             <Button className='paw-button' circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
-
-
     </Container>
   );
 };

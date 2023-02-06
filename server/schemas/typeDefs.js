@@ -47,19 +47,20 @@ const typeDefs = gql`
       user: User
       profiles: [Profile]
       vetNotes: [VetNote]
+      vetNote(vetNoteId: ID!): VetNote
       getHabits: [Habit]
       environment: Environment
     }
 
-      type Mutation {
-        addUser(username: String!, email: String!, password: String!): Auth
-        addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
-        updateUser(username: String!, email: String, password: String): User
-        addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
-        updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
-        removeProfile(profileId: ID!): Profile
-        addHabit(habitName: String!, frequency: String!): Habit
-        login(email: String!, password: String!): Auth
+    type Mutation {
+      addUser(username: String!, email: String!, password: String!): Auth
+      addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
+      updateUser(username: String!, email: String, password: String): User
+      addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+      updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+      removeProfile(profileId: ID!): Profile
+      addHabit(habitName: String!, frequency: String!): Habit
+      login(email: String!, password: String!): Auth
 }
 
 `;

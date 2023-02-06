@@ -27,6 +27,20 @@ export const QUERY_VETNOTES = gql`
   }
 `;
 
+export const QUERY_ONE_VETNOTE = gql`
+  query oneVetNote($vetNoteId: ID!) {
+    vetNote(vetNoteId: $vetNoteId) {
+      _id
+      petName
+      appointmentDate
+      primaryConcern
+      onsetDate
+      otherConcerns
+      createdAt
+    }
+  }
+`;
+
 export const QUERY_GET_HABITS = gql`
   query allHabits {
     habit {

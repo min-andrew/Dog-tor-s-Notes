@@ -13,6 +13,16 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // Add user validation inside vetNote query.
+    vetNote: async (parent, args, context) => {
+      if (context.user) {
+        const vetNote = await VetNote.findById(args.vetNoteId)
+
+        return vetNote;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
