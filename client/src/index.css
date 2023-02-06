@@ -21,7 +21,7 @@ label {
   margin: 5px !important;
 }
 .profile-page{
-  width: 100%;
+  width: 100% !important;
 }
 
 .vet-div {
@@ -68,9 +68,24 @@ label {
 }
 
 .checkBox {
-  flex-direction: row;
+  flex-direction: row !important;
 }
 
 .habit-checks {
-  display: block;
+  display: block !important;
+}
+
+.single-vet-page {
+   display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  text-align: center;
+}
+.single-vet-card {
+   display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  padding: 20px !important;
 }
