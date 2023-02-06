@@ -4,13 +4,14 @@ const { signToken } = require("../utils/auth");
 // const { GraphQLError } = require("graphql");
 const resolvers = {
   Query: {
-    profile: async () => {
-      return await Profile.find();
-    },
+    vetNotes: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate('vetNote');
 
-    vetNote: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return VetNote.find(params).sort({ createdAt: -1 });
+        return user.vetNote;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -38,9 +39,6 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
-    },
-    profile: async (parent, { _id }) => {
-      return await Profile.findById(_id);
     },
     environment: async () => {
       return {
@@ -75,9 +73,9 @@ const resolvers = {
     addVetNote: async (parent, args, context) => {
       console.log(context);
       if (context.user) {
-        const vetNote = await VetNote.create(args);
-        const addedVetNote = await User.findByIdAndUpdate({ _id: context.user._id }, { $push: { vetNote: vetNote } }, { new: true });
-        return vetNote;
+        const newVetNote = await VetNote.create(args);
+         await User.findByIdAndUpdate({ _id: context.user._id }, { $push: { vetNote: newVetNote._id } });
+        return newVetNote;
       }
       throw new AuthenticationError('Not logged in');
     },
