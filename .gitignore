@@ -1,6 +1,3 @@
-<<<<<<< HEAD
- .DS_Store.DS_Store
-=======
 # Logs
 logs
 *.log
@@ -134,4 +131,3 @@ dist
 
 .DS_Store
  
->>>>>>> 53c8ed8fa38a9850ffe60b0e5a44703312e55182
