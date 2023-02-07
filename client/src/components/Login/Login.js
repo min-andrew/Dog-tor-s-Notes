@@ -130,18 +130,19 @@ const Login = (props) => {
           {error && <div>{error.message}</div>}
         </Segment>
       </Container>
+
       <div style={hideState.create}>
-        <Signup />
-        <Form.Field>
-          <Divider horizontal>Or</Divider>
-        </Form.Field>
-        <Segment basic textAlign={"center"}>
-          <Form.Field>
-            <Button primary basic onClick={shower}>
-              Login
-            </Button>
-          </Form.Field>
-        </Segment>
+        <Container>
+          <Signup />
+          <Segment basic textAlign={"center"} style={{ margin: -20 }}>
+            <Form.Field>
+              <Divider horizontal>Or</Divider>
+              <Button primary basic onClick={shower}>
+                Login
+              </Button>
+            </Form.Field>
+          </Segment>
+        </Container>
       </div>
     </div>
   );
