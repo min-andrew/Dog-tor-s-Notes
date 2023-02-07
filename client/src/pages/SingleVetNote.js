@@ -22,7 +22,7 @@ const SingleVetNote = () => {
   return (
     <Container>
         <div className="single-vet-page">
-            <Header as='h2'>
+            <Header as='h3'>
                 <span>
                 You created this note on <br/>
                 {vetNote.createdAt}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_VETNOTES } from '../utils/queries';
-import { Button, Container, Header } from 'semantic-ui-react'
+import { Button, Container, Header, Card} from 'semantic-ui-react'
 
 const VetNotes = () => {
   const { loading, data } = useQuery(QUERY_VETNOTES, {
@@ -22,17 +22,20 @@ const VetNotes = () => {
           <div>Loading...</div>
         ) : (
 
-      <ul className="square">
+      <div className="note-card-container">
       {vetNoteList.map((vetNote) => {
               return (
-                <li key={vetNote._id}>
+                <div>
+                <Card key={vetNote._id} className="note-render">
                   <Link to={{ pathname: `/vetnotes/${vetNote._id}` }}>
+                    {vetNote.petName} 🦴<br/> 
                     {vetNote.createdAt}
                   </Link>
-                </li>
+                </Card>
+                </div>
               );
             })}
-      </ul>
+      </div>
         )}
   
 

@@ -101,3 +101,25 @@ label {
   text-align: center !important;
   padding: 15px !important;
 }
+ 
+/* VetNotes page */
+.note-render {
+  list-style-type: none !important;
+  border-style:groove !important;
+  padding: 10px !important;
+  margin: 10px !important;
+  box-shadow: darkgray;
+  margin: 8px !important;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.note-card-container {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  padding: 0px !important;
+  text-align: center;
+
+
+}
