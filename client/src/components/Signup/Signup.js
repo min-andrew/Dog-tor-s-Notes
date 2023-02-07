@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import {
-  Button,
-  Container,
-  Header,
-  Form,
-  Segment,
-  Image,
-} from "semantic-ui-react";
+import { Button, Container, Header, Form, Segment } from "semantic-ui-react";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -66,6 +59,8 @@ const Signup = () => {
                 type="text"
                 value={formState.username}
                 onChange={handleChange}
+                autocomplete="username"
+                required
               />
             </Form.Field>
             <Form.Field>
@@ -79,6 +74,8 @@ const Signup = () => {
                 type="email"
                 value={formState.email}
                 onChange={handleChange}
+                autocomplete="email"
+                required
               />
             </Form.Field>
             <Form.Field>
@@ -92,6 +89,8 @@ const Signup = () => {
                 type="password"
                 value={formState.password}
                 onChange={handleChange}
+                autocomplete="new-password"
+                required
               />
             </Form.Field>
             <Form.Field>

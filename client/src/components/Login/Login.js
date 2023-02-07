@@ -9,7 +9,6 @@ import {
   Form,
   Segment,
   Divider,
-  Image,
 } from "semantic-ui-react";
 import Signup from "../Signup/Signup";
 
@@ -94,6 +93,8 @@ const Login = (props) => {
                 type="email"
                 value={formState.email}
                 onChange={handleChange}
+                autocomplete="email"
+                required
               />
             </Form.Field>
 
@@ -107,6 +108,8 @@ const Login = (props) => {
                 type="password"
                 value={formState.password}
                 onChange={handleChange}
+                autocomplete="current-password"
+                required
               />
             </Form.Field>
 
