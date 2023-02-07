@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { Form, Button, Container, Header, Card } from 'semantic-ui-react'
+import { Form, Button, Container, Header } from 'semantic-ui-react'
 import { ADD_PROFILE, UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
 
@@ -105,7 +105,7 @@ const Profile = () => {
       console.error(e);
     }
   };
-
+// styling
 const containerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -129,9 +129,10 @@ const formStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     width: '500px',
-    padding: 15 
+    padding: 20 
 }
   return (
+    // Form for pet profile
     <Container style={containerStyle}>
       <div className="profile-page">
         <Header className="">Please Add Your Dog's Profile Here</Header>
@@ -139,16 +140,18 @@ const formStyle = {
           <Form style={formStyle} onSubmit={handleFormSubmitAdd}>
             <Form.Group widths='equal'>
               <Form.Field >
+                {/* input for pet name */}
                 <label>Pet Name</label>
                   <input
                     className=""
-                    placeholder="Your pet name"
+                    placeholder="Peanut Wigglebutt"
                     name="petName"
                     type="text"
                     value={addFormState.petName}
                     onChange={handleChangeAdd}
                   />
               </Form.Field>
+              {/* input for pet's age */}
               <Form.Field>
               <label>Pet Age</label>
                 <input
@@ -161,10 +164,11 @@ const formStyle = {
                 />
               </Form.Field>
               <Form.Field>
-              <label>Pet Breed</label>
+                {/* input for dog breed */}
+              <label>Breed of Your Pet</label>
                 <input
                   className=""
-                  placeholder="Your pet breed"
+                  placeholder="Beagle"
                   name="breed"
                   type="text"
                   value={addFormState.breed}
@@ -172,10 +176,11 @@ const formStyle = {
                 />
               </Form.Field>
               <Form.Field>
-              <label>Pet Food Brand</label>
+                {/* input for pet food brand */}
+              <label>Brand of Pet Food</label>
                 <input
                   className=""
-                  placeholder="Your pet food brand"
+                  placeholder="Royal Canin"
                   name="foodBrand"
                   type="text"
                   value={addFormState.foodBrand}
@@ -183,10 +188,11 @@ const formStyle = {
                 />
               </Form.Field>
               <Form.Field>
-              <label>Name of Human</label>
+                {/* input for owner's name */}
+              <label>Owner's name</label>
                 <input
                   className=""
-                  placeholder="Your pet human name"
+                  placeholder="Owner's name"
                   name="humanName"
                   type="text"
                   value={addFormState.humanName}
@@ -196,7 +202,7 @@ const formStyle = {
 
               <Button primary centered
                 className="profile-btn"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", margin: 8 }}
                 type="submit"
               >
                 Add Profile
@@ -217,12 +223,13 @@ const formStyle = {
             <div>
               <Header className="">Here is your lovely Dog's Profile List</Header>
               {data.profiles.map((profile, index) =>
-                <Form style={{ padding: 20 }}
+                <Form style={{ padding: 10 }}
                   index={index}
                   key={profile._id} 
                   onSubmit={(event) => handleFormSubmitUpdate(index, event)}>
                   <Form.Group>
                     <Form.Field>
+                      {/* update field for pet name */}
                       <input
                         className=""
                         placeholder="Your pet name"
@@ -233,6 +240,7 @@ const formStyle = {
                       />
                     </Form.Field>
                     <Form.Field>
+                      {/* update field for age of pet */}
                       <input
                         className=""
                         placeholder="Your pet age"
@@ -243,6 +251,7 @@ const formStyle = {
                       />
                     </Form.Field>
                     <Form.Field>
+                      {/* update field for pet breed */}
                       <input
                         className=""
                         placeholder="Your pet breed"
@@ -253,6 +262,7 @@ const formStyle = {
                       />
                     </Form.Field>
                     <Form.Field>
+                      {/* update field for pet food brand */}
                       <input
                         className=""
                         placeholder="Your pet food brand"
@@ -263,24 +273,27 @@ const formStyle = {
                       />
                     </Form.Field>
                     <Form.Field>
+                      {/* update field for owner name */}
                       <input
                         className=""
-                        placeholder="Your pet human name"
+                        placeholder="Owner's name"
                         name="humanName"
                         type="text"
                         value={updateFormState[index].humanName}
                         onChange={(ev) => handleChangeUpdate(index, ev)}
                       />
                     </Form.Field>
+                    {/* button for updating profile */}
                     <Button                      className="profile-btn"
-                      style={{ cursor: "pointer", backgroundColor: 'red'}}
+                      style={{ cursor: "pointer", backgroundColor: 'rgb(83,149,202)'}}
                       type="submit"
                     >
                       Update Profile
                     </Button>
+                    {/* button for removing profile */}
                     <Button
                       className="profile-btn"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", backgroundColor: 'red', marginBottom: 40 }}
                       type="button"
                       onClick={(ev) => handleFormRemove(profile._id, ev)}
                     >
