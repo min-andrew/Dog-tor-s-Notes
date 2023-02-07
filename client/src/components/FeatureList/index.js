@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Icon, Card } from 'semantic-ui-react'
+import { Button, Icon, Card } from 'semantic-ui-react'
 
 
 const FeatureList = ({ title }) => {
@@ -73,6 +73,32 @@ const FeatureList = ({ title }) => {
                                 </Card.Meta>
                             </Link>
                         </Card>
+                        <div className='habit-btns'>
+                        <Button circular animated='vertical' className='paw-button' onClick="disabled=true">
+                            <Button.Content hidden>Walk</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='paw' />
+                            </Button.Content>
+                        </Button>
+                        <Button circular animated='vertical' className='paw-button'>
+                            <Button.Content hidden>Food</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='food' />
+                            </Button.Content>
+                        </Button>
+                        <Button circular animated='vertical' className='paw-button'>
+                            <Button.Content hidden>Water</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='tint' />
+                            </Button.Content>
+                        </Button> 
+                        <Button circular animated='vertical' className='paw-button'>
+                            <Button.Content hidden>Meds</Button.Content>
+                            <Button.Content visible>
+                                <Icon name='pills' />
+                            </Button.Content>
+                        </Button> 
+                        </div>
   
                     </div>
                 </div>

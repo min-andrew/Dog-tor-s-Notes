@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ONE_VETNOTE } from '../utils/queries';
@@ -22,7 +22,7 @@ const SingleVetNote = () => {
   return (
     <Container>
         <div className="single-vet-page">
-            <Header as='h2'>
+            <Header as='h3'>
                 <span>
                 You created this note on <br/>
                 {vetNote.createdAt}
@@ -46,6 +46,14 @@ const SingleVetNote = () => {
           {vetNote.otherConcerns}
  
       </Card>
+        <div className='single-btn-group'>
+      <Link to="/">
+          <Button primary mini className='vet-note-nav-btns'>Home</Button>
+        </Link>
+        <Link to="/vetNotes">
+          <Button primary mini className='vet-note-nav-btns'>More Vet Notes</Button>
+        </Link>
+        </div>
      </div>
      </Container>
   );
