@@ -115,6 +115,13 @@ label {
   flex-direction: row !important;
 }
 
+.column-btn-grp {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
 .habit-btns {
   text-align: center !important;
   padding: 15px !important;
@@ -174,3 +181,43 @@ footer {
   min-width: 800px !important;
 }
 
+.single-profile {
+  padding: 20px !important;
+  margin: 10px !important;
+  
+}
+
+.add-profile-btn {
+  margin-top: 10px !important;
+}
+
+.profile-update-heading {
+  text-align: center;
+}
+
+.update-profile-card {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  padding: 10px !important;
+  text-align: center;
+}
+
+.profile-input {
+  min-width: 250px !important;
+}
+
+.form-group {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+.edit-profile-btn-grp {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: row !important;
+}
