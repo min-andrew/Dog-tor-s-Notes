@@ -1,10 +1,9 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+
+import {Image} from "semantic-ui-react";
 
 const Footer = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-
+ 
     const style = {
         position: 'fixed',
         bottom: 0,
@@ -17,16 +16,9 @@ const Footer = () => {
 
     return (
         <footer style={style}>
-            <div className="">
-                {location.pathname !== '/' && (
-                    <button
-                        className=""
-                        onClick={() => navigate(-1)}
-                    >
-                        &larr; Go Back
-                    </button>
-                )}
-                <h4>&copy; {new Date().getFullYear()} - Dog-tors</h4>
+            <div className="bottom-sig">
+                <h5 className='sig'>&copy; {new Date().getFullYear()} - Dog-tors</h5>
+                <Image className='dog-logo' src='https://user-images.githubusercontent.com/110498167/216803046-1e2afc0f-681a-4f68-a0d6-deb3ff194e5f.png' size='mini' />
             </div>
         </footer>
     );
