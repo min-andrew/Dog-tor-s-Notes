@@ -9,6 +9,7 @@ import {
   Form,
   Segment,
   Divider,
+  Image,
 } from "semantic-ui-react";
 import Signup from "../Signup/Signup";
 
@@ -16,10 +17,11 @@ const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
   const [hideState, setHideState] = useState({
-    signin: {}, create: {
-      display: "none"
-    }
-  })
+    signin: {},
+    create: {
+      display: "none",
+    },
+  });
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -55,36 +57,37 @@ const Login = (props) => {
   const hider = async () => {
     setHideState({
       signin: {
-        display: "none"
+        display: "none",
       },
       create: {
-        display: "block"
-      }
-    })
-  }
+        display: "block",
+      },
+    });
+  };
 
   const shower = async () => {
     setHideState({
       signin: {
-        display: "block"
+        display: "block",
       },
       create: {
-        display: "none"
-      }
-    })
-  }
+        display: "none",
+      },
+    });
+  };
 
   return (
     <div>
       <Container style={hideState.signin}>
         <Segment basic textAlign={"center"}>
           <Header as="h2" textAlign="center">
-            Login
+            Welcome
           </Header>
-
           <Form onSubmit={handleFormSubmit}>
             <Form.Field>
-              <label htmlFor="email">Email</label>
+              <h4>
+                <label htmlFor="email">Email</label>
+              </h4>
               <input
                 placeholder="Your email"
                 name="email"
@@ -95,7 +98,9 @@ const Login = (props) => {
             </Form.Field>
 
             <Form.Field>
-              <label htmlFor="password">Password</label>
+              <h4>
+                <label htmlFor="password">Password</label>
+              </h4>
               <input
                 placeholder="*****"
                 name="password"
@@ -124,10 +129,11 @@ const Login = (props) => {
       </Container>
       <div style={hideState.create}>
         <Signup />
+        <Form.Field>
+          <Divider horizontal>Or</Divider>
+        </Form.Field>
         <Segment basic textAlign={"center"}>
           <Form.Field>
-            <Divider horizontal>Or</Divider>
-
             <Button primary basic onClick={shower}>
               Login
             </Button>
