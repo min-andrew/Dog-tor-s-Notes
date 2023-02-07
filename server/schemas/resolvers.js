@@ -41,6 +41,16 @@ const resolvers = {
       const habits = await Habit.find()
       return habits
     },
+    profile: async (parent, args, context) => {
+      if (context.user) {
+        const profile = await Profile.findById(args.profileId)
+
+        return profile;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
     profiles: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate('profile');

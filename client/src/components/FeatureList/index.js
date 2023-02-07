@@ -30,7 +30,7 @@ const FeatureList = ({ title }) => {
                 <div >
                     <div>
                     <Card>
-                            <Link style={cardStyle} to="/profile">
+                            <Link style={cardStyle} to="/profiles">
                                 <Card.Header>
                                     <Icon enabled name='paw' size='big' />
                                     Profile

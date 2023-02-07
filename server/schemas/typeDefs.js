@@ -47,6 +47,7 @@ const typeDefs = gql`
       user: User
       profiles: [Profile]
       vetNotes: [VetNote]
+      profile(profileId:ID!): Profile
       vetNote(vetNoteId: ID!): VetNote
       getHabits: [Habit]
       environment: Environment
