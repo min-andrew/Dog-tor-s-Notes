@@ -12,6 +12,10 @@ code {
     monospace !important;
 }
 
+.header-top {
+ margin-top: 10px !important;
+}
+
 .ui.form .fields{
   flex-direction: column !important;
   width: 75% !important;
@@ -20,12 +24,14 @@ code {
 label {
   margin: 5px !important;
 }
+
 .profile-page{
   width: 100% !important;
 }
 
 .vet-div {
   max-width: 500px !important;
+  margin: 0px !important;
 }
 
 .vet-text {
@@ -60,6 +66,18 @@ label {
 
 .vet-note-nav-btns {
   width: 150px !important;
+  margin: 5px !important;
+}
+
+.vet-form-btn-grp{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: row !important;
+}
+
+.vet-form-nav-btns {
+  width: 100px !important;
   margin: 5px !important;
 }
 
@@ -131,8 +149,8 @@ label {
     margin: 0px !important;
 }
 
-h5.sig {
-
+footer {
+  height: 30px !important;
 }
 
 .dog-logo {
@@ -140,3 +158,19 @@ h5.sig {
   height: 20px !important;
   margin-bottom: 16px !important;
 }
+
+.hero {
+  background-image: url("https://user-images.githubusercontent.com/110498167/217146868-44a02b2c-c3d0-4c65-95c5-c5272de1fa35.jpg") !important;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.dogter-banner {
+  margin-top: 10px;
+  height: 50px !important;
+  min-width: 800px !important;
+}
+

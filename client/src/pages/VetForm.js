@@ -139,16 +139,22 @@ const VetForm = () => {
               onChange={handleChange} />
           </Form.Group>
         </Form>
-        <Button circular icon='paw' type='submit' onClick={handleFormSubmit} className='paw-button'></Button>
+ 
       </div>
       <div>{error && <div>{error.message}</div>}</div>
-      <Link to="/vetNotes">
-        <Button primary className='vet-note-nav-btns'>Back to VetNotes</Button>
-      </Link>
 
-      <Link to="/">
-        <Button primary className='vet-note-nav-btns'>Back Home</Button>
-      </Link>
+      <div className='vet-form-btn-grp'>
+        <Button primary className='vet-form-nav-btns' type='submit' onClick={handleFormSubmit}>Submit Vet Note </Button>
+
+
+        <Link to="/vetNotes">
+          <Button primary className='vet-form-nav-btns'>Back to VetNotes</Button>
+        </Link>
+
+        <Link to="/">
+          <Button primary className='vet-form-nav-btns'>Back Home</Button>
+        </Link>
+      </div>
     </Container>
   );
 };

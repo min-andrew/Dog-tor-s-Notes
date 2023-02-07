@@ -16,6 +16,7 @@ const DogHeader = () => {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    marginTop: 0
   };
   const menu = {
     display: "flex",
@@ -36,13 +37,13 @@ const DogHeader = () => {
       <Header style={style} as="h3" dividing textAlign="center">
         <div>
           <Link className="" to="/">
-          <Image src='https://user-images.githubusercontent.com/110498167/217140031-0b16bf64-3951-4183-a4db-a65b5c9b3fd4.png' fluid />
+          <Image className="dogter-banner" src='https://user-images.githubusercontent.com/110498167/217140031-0b16bf64-3951-4183-a4db-a65b5c9b3fd4.png' fluid />
   
           </Link>
-          <Header style={menu} textAlign="center">
+          <Header style={menu} textAlign="center" className="header-top">
             {Auth.loggedIn() ? (
               <div style={buttonstyle}>
-                <Button primary mini onClick={logout} className="nav-buttons">
+                <Button primary mini compact onClick={logout} className="nav-buttons">
                   Logout
                 </Button>
               </div>

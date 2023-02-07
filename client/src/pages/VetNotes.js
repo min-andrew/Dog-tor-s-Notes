@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_VETNOTES } from '../utils/queries';
-import { Button, Container, Header, Card} from 'semantic-ui-react'
+import { Button, Container, Header, Card} from 'semantic-ui-react';
 
 const VetNotes = () => {
   const { loading, data } = useQuery(QUERY_VETNOTES, {
