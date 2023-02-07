@@ -120,6 +120,23 @@ label {
   flex-direction: column !important;
   padding: 0px !important;
   text-align: center;
+}
 
+.bottom-sig {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+    margin-top: 30px !important;
+    gap: 5px;
+    margin: 0px !important;
+}
 
+h5.sig {
+
+}
+
+.dog-logo {
+  width: 20px !important;
+  height: 20px !important;
+  margin-bottom: 16px !important;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Sticky } from "semantic-ui-react";
+import { Header, Sticky, Button, Image } from "semantic-ui-react";
 
 import Auth from "../../utils/auth";
 
@@ -19,7 +19,7 @@ const DogHeader = () => {
   };
   const menu = {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     alignItems: "center",
     width: "100%",
   };
@@ -36,19 +36,24 @@ const DogHeader = () => {
       <Header style={style} as="h3" dividing textAlign="center">
         <div>
           <Link className="" to="/">
-            <h1 className="" style={{}}>
-              Dog-tor's Notes
-            </h1>
+          <Image src='https://user-images.githubusercontent.com/110498167/217140031-0b16bf64-3951-4183-a4db-a65b5c9b3fd4.png' fluid />
+  
           </Link>
           <Header style={menu} textAlign="center">
             {Auth.loggedIn() ? (
               <div style={buttonstyle}>
-                <button onClick={logout}>Logout</button>
+                <Button primary mini onClick={logout} className="nav-buttons">
+                  Logout
+                </Button>
               </div>
             ) : (
               <>
-                {/* <Link to="/">Login</Link>
-                <Link to="/">Signup</Link> */}
+                {/* <Link to="/login"><Button primary mini className="nav-buttons">
+                  Login
+                </Button></Link>
+                <Link className="" to="/signup"><Button primary mini className="nav-buttons">
+                  Signup</Button>
+                </Link> */}
               </>
             )}
           </Header>
