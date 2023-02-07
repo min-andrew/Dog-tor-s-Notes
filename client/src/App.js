@@ -57,7 +57,7 @@ function App() {
           <div style={style}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profiles" element={<Profile />} />
               <Route path="/profiles/:profileId" element={<SingleProfile />} />
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
