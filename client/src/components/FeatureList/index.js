@@ -62,17 +62,6 @@ const FeatureList = ({ title }) => {
                                 </Card.Meta>
                             </Link>
                         </Card>
-                        <Card>
-                            <Link style={cardStyle} to="/habitForm">
-                                <Card.Header>
-                                    <Icon enabled name='check circle' size='big' />
-                                    Habit Tracker
-                                </Card.Header>
-                                <Card.Meta>
-                                    Create (and stick to) good habits.
-                                </Card.Meta>
-                            </Link>
-                        </Card>
                         <div className='habit-btns'>
                         <Button circular animated='vertical' className='paw-button' onClick="disabled=true">
                             <Button.Content hidden>Walk</Button.Content>
