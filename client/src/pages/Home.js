@@ -6,8 +6,7 @@ import Auth from "../utils/auth";
 const Home = () => {
     return (
         <main>
-
-            <div className="">
+             <div className="hero ">
                 <div className="">
                     {Auth.loggedIn() ? (
                         <div>
