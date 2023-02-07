@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
+import { Link } from 'react-router-dom';
 import { Form, Button, Container, Header } from 'semantic-ui-react'
 import { ADD_PROFILE, UPDATE_PROFILE, REMOVE_PROFILE } from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
@@ -308,7 +309,11 @@ const formStyle = {
           {removeError && <div className="">{removeError.message}</div>}
         </div>
       </div>
+      <Link to="/">
+          <Button primary className='vet-note-nav-btns'>Back Home</Button>
+        </Link>
     </Container>
+    
   );
 };
 
