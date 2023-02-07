@@ -12,6 +12,18 @@ export const QUERY_PROFILES = gql`
     }
   }  
 `;
+export const QUERY_SINGLE_PROFILE = gql`
+  query singleProfile($profileId: ID!) {
+    profile(_id: $profileId) {
+      _id
+      petName
+      age
+      breed
+      foodBrand
+      humanName
+    }
+  }  
+`;
 
 export const QUERY_VETNOTES = gql`
   query allVetNotes {
