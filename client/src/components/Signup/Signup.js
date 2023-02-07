@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { Button, Container, Header, Form, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Header,
+  Form,
+  Segment,
+  Image,
+} from "semantic-ui-react";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -46,54 +52,54 @@ const Signup = () => {
         <Header as="h2" textAlign="center">
           Sign-Up
         </Header>
+
         <div className="">
-          {data ? (
-            <p>
-              Success! You may now head{" "}
-              <Link to="/">back to the homepage.</Link>
-            </p>
-          ) : (
-            <Form onSubmit={handleFormSubmit}>
-              <Form.Field>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Field>
+              <h4>
                 <label htmlFor="username">Username:</label>
-                <input
-                  className=""
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.username}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
+              </h4>
+              <input
+                className=""
+                placeholder="Your username"
+                name="username"
+                type="text"
+                value={formState.username}
+                onChange={handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <h4>
                 <label htmlFor="email">Email:</label>
-                <input
-                  className=""
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
+              </h4>
+              <input
+                className=""
+                placeholder="Your email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <h4>
                 <label htmlFor="password">Password:</label>
-                <input
-                  className=""
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <Button primary type="submit">
-                  Create Account
-                </Button>
-              </Form.Field>
-            </Form>
-          )}
+              </h4>
+              <input
+                className=""
+                placeholder="******"
+                name="password"
+                type="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Button primary type="submit">
+                Create Account
+              </Button>
+            </Form.Field>
+          </Form>
 
           {error && <div className="">{error.message}</div>}
         </div>
