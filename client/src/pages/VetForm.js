@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, Button, TextArea, Container, Header} from 'semantic-ui-react'
 import { useMutation } from "@apollo/client";
 import { ADD_VETNOTE } from "../utils/mutations";
@@ -141,6 +142,9 @@ const formStyle = {
         <Button circular icon='paw' type='submit' onClick={handleFormSubmit} className='paw-button'></Button> 
       </div>
       <div>{error && <div>{error.message}</div>}</div>
+      <Link to="/">
+          <Button primary className='vet-note-nav-btns'>Back Home</Button>
+        </Link>
       </Container>
   );
 };

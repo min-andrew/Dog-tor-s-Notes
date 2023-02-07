@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Button, Container, Form, Checkbox, Header} from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Button, Container, Form, Checkbox, Header, Grid} from 'semantic-ui-react';
 import { ADD_HABIT } from '../utils/mutations';
 
 const HabitForm = () => {
@@ -150,6 +151,14 @@ const HabitForm = () => {
             </Form>
 
             <Button className='paw-button' circular icon='paw' type='submit' onClick={handleFormSubmit}></Button>
+            <br></br>
+            <Grid>
+            <Grid.Column textAlign="center">
+            <Link to="/">
+                <Button primary className ='vet-note-nav-btns'>Back Home</Button>
+            </Link>
+            </Grid.Column>
+            </Grid>
     </Container>
   );
 };
