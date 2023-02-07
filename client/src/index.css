@@ -89,3 +89,15 @@ label {
   flex-direction: column !important;
   padding: 20px !important;
 }
+
+.single-btn-group {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: row !important;
+}
+
+.habit-btns {
+  text-align: center !important;
+  padding: 15px !important;
+}
