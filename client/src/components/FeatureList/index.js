@@ -1,10 +1,12 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Icon, Card } from 'semantic-ui-react'
+import HabitButtons from '../HabitBtns';
+
 
 
 const FeatureList = ({ title }) => {
-
+ 
     const titleStyle = {
         display: 'flex',
         justifyContent: 'center',
@@ -26,9 +28,9 @@ const FeatureList = ({ title }) => {
     return (
         <div>
             <h3 style={titleStyle}>{title}</h3>
-            <div style={bodyStyle}>
+            <div style={bodyStyle} >
                 <div >
-                    <div>
+                    <div className='note-card-container'>
                     <Card>
                             <Link style={cardStyle} to="/profiles">
                                 <Card.Header>
@@ -63,30 +65,7 @@ const FeatureList = ({ title }) => {
                             </Link>
                         </Card>
                         <div className='habit-btns'>
-                        <Button circular animated='vertical' className='paw-button' onClick="disabled=true">
-                            <Button.Content hidden>Walk</Button.Content>
-                            <Button.Content visible>
-                                <Icon name='paw' />
-                            </Button.Content>
-                        </Button>
-                        <Button circular animated='vertical' className='paw-button'>
-                            <Button.Content hidden>Food</Button.Content>
-                            <Button.Content visible>
-                                <Icon name='food' />
-                            </Button.Content>
-                        </Button>
-                        <Button circular animated='vertical' className='paw-button'>
-                            <Button.Content hidden>Water</Button.Content>
-                            <Button.Content visible>
-                                <Icon name='tint' />
-                            </Button.Content>
-                        </Button> 
-                        <Button circular animated='vertical' className='paw-button'>
-                            <Button.Content hidden>Meds</Button.Content>
-                            <Button.Content visible>
-                                <Icon name='pills' />
-                            </Button.Content>
-                        </Button> 
+                            <HabitButtons />
                         </div>
   
                     </div>
