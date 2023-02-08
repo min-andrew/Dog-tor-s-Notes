@@ -84,7 +84,7 @@ const Signup = () => {
               </h4>
               <input
                 className=""
-                placeholder="******"
+                placeholder="*****"
                 name="password"
                 type="password"
                 value={formState.password}

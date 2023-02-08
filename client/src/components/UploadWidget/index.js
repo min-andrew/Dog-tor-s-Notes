@@ -75,8 +75,8 @@ const UploadWidget = () => {
   return (
     <Container>
       <Segment basic textAlign={"center"}>
-        <h1>Cloudinary Gallery</h1>
-        <h3>Upload an Image</h3>
+        <h1>Photo Library</h1>
+        <h3>Upload images of your concerns here</h3>
         <Form onSubmit={handleSubmitFile}>
           <Input
             transparent

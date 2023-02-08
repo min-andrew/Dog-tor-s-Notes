@@ -25,7 +25,7 @@ const Profile = () => {
         data &&
         data.profiles &&
         data.profiles.length > 0 && (
-          <div>
+          <div className="note-card-container">
             {data.profiles.map((profile) => (
               <div>
                 <Card
@@ -55,8 +55,7 @@ const Profile = () => {
         </Button>
       </Link>
     </Container>
-  )
-
+  );
 };
 
 export default Profile;

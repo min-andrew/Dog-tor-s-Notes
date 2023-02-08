@@ -15,15 +15,14 @@ import DogHeader from "./components/Header";
 import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
 import VetForm from "./pages/VetForm";
-import Todo from "./components/Todo/Todo";
-import Injury from "./pages/Injury";
+import Photos from "./pages/Photos";
 import HabitForm from "./pages/HabitForm";
 import SingleVetNote from "./pages/SingleVetNote";
 import SingleProfile from "./pages/SingleProfile";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -64,8 +63,7 @@ function App() {
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
               <Route path="/vetNotes/:vetNoteId" element={<SingleVetNote />} />
-              <Route path="/todo" element={<Todo />} />
-              <Route path="/injury" element={<Injury />} />
+              <Route path="/photos" element={<Photos />} />
               <Route path="/habitForm" element={<HabitForm />} />
             </Routes>
           </div>
