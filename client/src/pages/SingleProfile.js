@@ -94,7 +94,7 @@ const SingleProfile = () => {
       });
       console.log(data);
 
-      window.location = "/";
+      window.location = "/#/profiles";
     } catch (e) {
       console.error(e);
     }

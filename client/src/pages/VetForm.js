@@ -77,6 +77,8 @@ const VetForm = () => {
         onsetDate: "",
         otherConcerns: "",
       });
+
+      window.location = "/#/VetNotes";
     } catch (e) {
       console.error(e);
     }
