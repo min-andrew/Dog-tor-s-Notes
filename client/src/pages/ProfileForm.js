@@ -105,7 +105,7 @@ const Profile = () => {
               <Form.Field>
                 <label>Pet Age</label>
                 <input
-                  placeholder="Pet age"
+                  placeholder="Pet Age"
                   name="age"
                   type="number"
                   value={addFormState.age}
