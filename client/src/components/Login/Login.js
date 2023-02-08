@@ -77,7 +77,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <Container style={hideState.signin}>
+      <Container style={hideState.signin} className="" >
         <Segment basic textAlign={"center"}>
           <Header as="h2" textAlign="center">
             Welcome
@@ -88,6 +88,7 @@ const Login = (props) => {
                 <label htmlFor="email">Email</label>
               </h4>
               <input
+                className="login-input"
                 placeholder="Your email"
                 name="email"
                 type="email"
@@ -103,6 +104,7 @@ const Login = (props) => {
                 <label htmlFor="password">Password</label>
               </h4>
               <input
+                className="login-input"
                 placeholder="*****"
                 name="password"
                 type="password"

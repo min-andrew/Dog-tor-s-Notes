@@ -73,12 +73,13 @@ export const REMOVE_VETNOTE = gql`
   }`;
 
 export const ADD_PROFILE = gql`
-  mutation addProfile($petName: String!, $age: String!, $breed: String!, $foodBrand: String!, $humanName: String!) {
-    addProfile(petName: $petName, age: $age, breed: $breed, foodBrand: $foodBrand, humanName: $humanName) {
+  mutation addProfile($petName: String!, $age: String!, $breed: String!, $microchip: String, $foodBrand: String!, $humanName: String!) {
+    addProfile(petName: $petName, age: $age, breed: $breed, microchip: $microchip, foodBrand: $foodBrand, humanName: $humanName) {
       _id
       petName
       age
       breed
+      microchip
       foodBrand
       humanName
     }
@@ -86,12 +87,13 @@ export const ADD_PROFILE = gql`
   `;
 
 export const UPDATE_PROFILE = gql`
-  mutation updateProfile($_id: ID!, $petName: String!, $age: String!, $breed: String!, $foodBrand: String!, $humanName: String!) {
-    updateProfile(_id: $_id, petName: $petName, age: $age, breed: $breed, foodBrand: $foodBrand, humanName: $humanName) {
+  mutation updateProfile($_id: ID!, $petName: String!, $age: String!, $breed: String!,  $microchip: String, $foodBrand: String!, $humanName: String!) {
+    updateProfile(_id: $_id, petName: $petName, age: $age, breed: $breed, microchip: $microchip, foodBrand: $foodBrand, humanName: $humanName) {
       _id
       petName
       age
       breed
+      microchip
       foodBrand
       humanName
     }
@@ -105,6 +107,7 @@ export const REMOVE_PROFILE = gql`
       petName
       age
       breed
+      microchip
       foodBrand
       humanName
     }

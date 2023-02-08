@@ -10,6 +10,7 @@ const Profile = () => {
     petName: "",
     age: "",
     breed: "",
+    microchip: "",
     foodBrand: "",
     humanName: "",
   });
@@ -40,6 +41,7 @@ const Profile = () => {
         petName: "",
         age: "",
         breed: "",
+        microchip: "",
         foodBrand: "",
         humanName: "",
       });
@@ -122,6 +124,17 @@ const Profile = () => {
                   name="breed"
                   type="text"
                   value={addFormState.breed}
+                  onChange={handleChangeAdd}
+                />
+              </Form.Field>
+              <Form.Field>
+                {/* input for dog microchip */}
+                <label>Microchip Number</label>
+                <input
+                  placeholder="Microchip"
+                  name="microchip"
+                  type="text"
+                  value={addFormState.microchip}
                   onChange={handleChangeAdd}
                 />
               </Form.Field>
