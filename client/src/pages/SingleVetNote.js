@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ONE_VETNOTE } from '../utils/queries';
-import { UPDATE_VETNOTE, REMOVE_VETNOTE } from '../utils/mutations';
-import { Button, Container, Header, Card, Form } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ONE_VETNOTE } from "../utils/queries";
+import { UPDATE_VETNOTE, REMOVE_VETNOTE } from "../utils/mutations";
+import { Button, Container, Header, Card, Form } from "semantic-ui-react";
 
 const SingleVetNote = () => {
-  
   const { vetNoteId } = useParams();
 
-  const { loading, data, refetch} = useQuery(QUERY_ONE_VETNOTE, {
+  const { loading, data, refetch } = useQuery(QUERY_ONE_VETNOTE, {
     // pass URL parameter
     variables: { vetNoteId: vetNoteId },
     onCompleted: (data) => setUpdateFormState(data.vetNote),
@@ -105,48 +104,54 @@ const SingleVetNote = () => {
   }
   return (
     <Container>
-      {<div className="note" style={hideState.vetNote}>
-        <div className="note-card-container">
-           
-      <Card className="single-vet-card" 
-            style={{
-            lineHeight: '1.5',
-            textAlign: 'center'
-          }}
-        > 
-        <Header textAlign={"center"}>Your Pet's Name</Header>
-          {vetNote.petName}
-        <Header textAlign={"center"}>Appointment Date</Header>
-          {vetNote.appointmentDate}
-        <Header textAlign={"center"}>Primary Concern</Header>
-          {vetNote.primaryConcern}
-        <Header textAlign={"center"}>Date of Symptom Onset</Header>
-          {vetNote.onsetDate}
-        <Header textAlign={"center"}>Other Concerns</Header>
-          {vetNote.otherConcerns}
- 
-      </Card>
-      <div className="column-btn-grp">
-          <Button primary compact mini className="vet-note-nav-btns" onClick={hider}>
-            Edit Note
-          </Button>
-          <Link to="/vetnotes">
-            <Button primary compact mini className="vet-note-nav-btns">
-              All Vet Notes
-            </Button>
-          </Link>
-          <Link to="/">
-            <Button primary compact mini className="vet-note-nav-btns">
-              Home
-            </Button>
-          </Link>
-
+      {
+        <div className="note" style={hideState.vetNote}>
+          <div className="note-card-container">
+            <Card
+              className="single-vet-card"
+              style={{
+                lineHeight: "1.5",
+                textAlign: "center",
+              }}
+            >
+              <Header textAlign={"center"}>Your Pet's Name</Header>
+              {vetNote.petName}
+              <Header textAlign={"center"}>Appointment Date</Header>
+              {vetNote.appointmentDate}
+              <Header textAlign={"center"}>Primary Concern</Header>
+              {vetNote.primaryConcern}
+              <Header textAlign={"center"}>Date of Symptom Onset</Header>
+              {vetNote.onsetDate}
+              <Header textAlign={"center"}>Other Concerns</Header>
+              {vetNote.otherConcerns}
+            </Card>
+            <div className="column-btn-grp">
+              <Button
+                primary
+                compact
+                mini
+                className="vet-note-nav-btns"
+                onClick={hider}
+              >
+                Edit Note
+              </Button>
+              <Link to="/vetnotes">
+                <Button primary compact mini className="vet-note-nav-btns">
+                  All Vet Notes
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button primary compact mini className="vet-note-nav-btns">
+                  Back Home
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-     </div>
-     </div>}
+      }
 
-     {/* ------------------------------------- */}
-     <div className="edit-profile" style={hideState.update}>
+      {/* ------------------------------------- */}
+      <div className="edit-profile" style={hideState.update}>
         <div className="profile-update-heading">
           <Header as="h3">
             <span>{vetNote.petName}'s Vet Note</span>
@@ -228,31 +233,32 @@ const SingleVetNote = () => {
                   </Form.Field>
                   {/* button for updating note */}
                   <div className="single-btn-group">
-                  <Button compact
-                    className="profile-btn"
-                    style={{
-                      cursor: "pointer",
-                      backgroundColor: "rgb(83,149,202)",
-                    }}
-                    type="submit"
-                    onClick={shower}
-                  >
-                    Update Note
-                  </Button>
-                  {/* button for removing note */}
+                    <Button
+                      compact
+                      className="profile-btn"
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "rgb(83,149,202)",
+                      }}
+                      type="submit"
+                      onClick={shower}
+                    >
+                      Update Note
+                    </Button>
+                    {/* button for removing note */}
 
-                  <Button compact
-                    className="profile-btn"
-                    style={{
-                      cursor: "pointer",
-                      backgroundColor: "red",
-                    }}
-                    type="button"
-                    onClick={(ev) => handleFormRemove(vetNote._id, ev)}
-                  >
-                    Remove Note
-                  </Button>
-
+                    <Button
+                      compact
+                      className="profile-btn"
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "red",
+                      }}
+                      type="button"
+                      onClick={(ev) => handleFormRemove(vetNote._id, ev)}
+                    >
+                      Remove Note
+                    </Button>
                   </div>
                 </Form.Group>
               </Form>
@@ -275,10 +281,8 @@ const SingleVetNote = () => {
           </div>
         </div>
       </div>
-
-     </Container>
+    </Container>
   );
 };
 
 export default SingleVetNote;
-

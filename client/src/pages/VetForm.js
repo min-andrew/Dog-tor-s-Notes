@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Button, TextArea, Container, Header } from 'semantic-ui-react'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Form, Button, TextArea, Container, Header } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import { ADD_VETNOTE } from "../utils/mutations";
 
@@ -26,46 +26,46 @@ const VetForm = () => {
   };
 
   const headerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
-  }
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  };
 
   const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    flexDirection: 'column',
-    textAlign: 'center'
-  }
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    flexDirection: "column",
+    textAlign: "center",
+  };
 
   const cardStyle = {
-    margin: '20px',
-    display: 'block',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    textAlign: 'center'
-  }
+    margin: "20px",
+    display: "block",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    textAlign: "center",
+  };
 
   const formStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '500px',
-    padding: 15
-  }
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "500px",
+    padding: 15,
+  };
   const labelStyle = {
-    fontSize: '.92857143em',
+    fontSize: ".92857143em",
     fontWeight: 700,
-    textAlign: 'center'
-  }
+    textAlign: "center",
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const { data, error } = await addVetNote({
         variables: { ...formState },
@@ -80,20 +80,21 @@ const VetForm = () => {
     } catch (e) {
       console.error(e);
     }
-  }
+  };
   return (
-
     <Container style={containerStyle}>
-
       <Header style={headerStyle}>Veterinary Notes</Header>
-      <p className='vet-text'>Make notes to prepare for your upcoming appointment.<br />
-        Record notes once the appointment is done.<br />
+      <p className="vet-text">
+        Make notes to prepare for your upcoming appointment.
+        <br />
+        Record notes once the appointment is done.
+        <br />
         Save them to your record for future reference.
       </p>
-      <div style={cardStyle} className='vet-div'>
+      <div style={cardStyle} className="vet-div">
         <Form style={formStyle}>
-          <Form.Group widths='equal'>
-            <Form.Field className='vet-field' required>
+          <Form.Group widths="equal">
+            <Form.Field className="vet-field" required>
               <label>Pet Name</label>
               <Form.Input
                 value={formState.petName}
@@ -103,18 +104,18 @@ const VetForm = () => {
               />
             </Form.Field>
 
-            <Form.Field className='vet-field' required>
+            <Form.Field className="vet-field" required>
               <label>Appointment Date</label>
               <input
                 value={formState.appointmentDate}
                 name="appointmentDate"
                 onChange={handleChange}
                 placeholder="ex. 10/24/2023 or TBD"
-                className='input-field'
+                className="input-field"
               />
             </Form.Field>
 
-            <Form.Field className='vet-field' required>
+            <Form.Field className="vet-field" required>
               <label>Primary Concern</label>
               <input
                 value={formState.primaryConcern}
@@ -124,7 +125,7 @@ const VetForm = () => {
               />
             </Form.Field>
 
-            <Form.Field className='vet-field' required>
+            <Form.Field className="vet-field" required>
               <label>Date of Onset</label>
               <input
                 value={formState.onsetDate}
@@ -135,30 +136,42 @@ const VetForm = () => {
             </Form.Field>
 
             <label style={labelStyle}>Other Concerns</label>
-            <TextArea rows={4} placeholder="Diet, new behaviors, dental issues, etc." value={formState.otherConcerns}
+            <TextArea
+              rows={4}
+              placeholder="Diet, new behaviors, dental issues, etc."
+              value={formState.otherConcerns}
               name="otherConcerns"
-              onChange={handleChange} />
+              onChange={handleChange}
+            />
           </Form.Group>
         </Form>
- 
       </div>
       <div>{error && <div>{error.message}</div>}</div>
 
-      <div className='vet-form-btn-grp'>
-        <Button primary className='vet-form-nav-btns' type='submit' onClick={handleFormSubmit}>Submit Vet Note </Button>
-
+      <div className="vet-form-btn-grp">
+        <Button
+          primary
+          className="vet-form-nav-btns"
+          type="submit"
+          onClick={handleFormSubmit}
+        >
+          Submit Vet Note{" "}
+        </Button>
 
         <Link to="/vetNotes">
-          <Button primary className='vet-form-nav-btns'>Back to VetNotes</Button>
+          <Button primary className="vet-form-nav-btns">
+            Back to Vet Notes
+          </Button>
         </Link>
 
         <Link to="/">
-          <Button primary className='vet-form-nav-btns'>Back Home</Button>
+          <Button primary className="vet-form-nav-btns">
+            Back Home
+          </Button>
         </Link>
       </div>
     </Container>
   );
 };
-
 
 export default VetForm;

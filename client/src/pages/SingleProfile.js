@@ -106,46 +106,52 @@ const SingleProfile = () => {
     <div>Loading profile...</div>
   ) : profile ? (
     <Container>
-     
       {/* --------------Diplays Single Profile---------- */}
-      {<div className="note" style={hideState.profile}>
-        <div className='note-card-container'>
-        <Card
-          className="single-vet-card"
-          style={{
-            lineHeight: "1.5",
-            textAlign: "center",
-          }}
-        >
-          <Header textAlign={"center"}>Your Pet's Name</Header>
-          {profile.petName}
-          <Header textAlign={"center"}>Age</Header>
-          {profile.age}
-          <Header textAlign={"center"}>Breed</Header>
-          {profile.breed}
-          <Header textAlign={"center"}>Food Brand</Header>
-          {profile.foodBrand}
-          <Header textAlign={"center"}>Owner's Name</Header>
-          {profile.humanName}
-        </Card>
-        <div className="column-btn-grp">
-          <Button primary compact mini className="vet-note-nav-btns" onClick={hider}>
-            Edit Profile
-          </Button>
-          <Link to="/profiles">
-            <Button primary compact mini className="vet-note-nav-btns">
-              All Profiles
-            </Button>
-          </Link>
-          <Link to="/">
-            <Button primary compact mini className="vet-note-nav-btns">
-              Home
-            </Button>
-          </Link>
-
+      {
+        <div className="note" style={hideState.profile}>
+          <div className="note-card-container">
+            <Card
+              className="single-vet-card"
+              style={{
+                lineHeight: "1.5",
+                textAlign: "center",
+              }}
+            >
+              <Header textAlign={"center"}>Your Pet's Name</Header>
+              {profile.petName}
+              <Header textAlign={"center"}>Age</Header>
+              {profile.age}
+              <Header textAlign={"center"}>Breed</Header>
+              {profile.breed}
+              <Header textAlign={"center"}>Food Brand</Header>
+              {profile.foodBrand}
+              <Header textAlign={"center"}>Owner's Name</Header>
+              {profile.humanName}
+            </Card>
+            <div className="column-btn-grp">
+              <Button
+                primary
+                compact
+                mini
+                className="vet-note-nav-btns"
+                onClick={hider}
+              >
+                Edit Profile
+              </Button>
+              <Link to="/profiles">
+                <Button primary compact mini className="vet-note-nav-btns">
+                  All Profiles
+                </Button>
+              </Link>
+              <Link to="/">
+                <Button primary compact mini className="vet-note-nav-btns">
+                  Back Home
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>}
+      }
       {/* ----------------Edit Form------------------ */}
       <div className="edit-profile" style={hideState.update}>
         <div className="profile-update-heading">
@@ -229,31 +235,32 @@ const SingleProfile = () => {
                   </Form.Field>
                   {/* button for updating profile */}
                   <div className="single-btn-group">
-                  <Button compact
-                    className="profile-btn"
-                    style={{
-                      cursor: "pointer",
-                      backgroundColor: "rgb(83,149,202)",
-                    }}
-                    type="submit"
-                    onClick={shower}
-                  >
-                    Update Profile
-                  </Button>
-                  {/* button for removing profile */}
+                    <Button
+                      compact
+                      className="profile-btn"
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "rgb(83,149,202)",
+                      }}
+                      type="submit"
+                      onClick={shower}
+                    >
+                      Update Profile
+                    </Button>
+                    {/* button for removing profile */}
 
-                  <Button compact
-                    className="profile-btn"
-                    style={{
-                      cursor: "pointer",
-                      backgroundColor: "red",
-                    }}
-                    type="button"
-                    onClick={(ev) => handleFormRemove(profile._id, ev)}
-                  >
-                    Remove Profile
-                  </Button>
-
+                    <Button
+                      compact
+                      className="profile-btn"
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "red",
+                      }}
+                      type="button"
+                      onClick={(ev) => handleFormRemove(profile._id, ev)}
+                    >
+                      Remove Profile
+                    </Button>
                   </div>
                 </Form.Group>
               </Form>
