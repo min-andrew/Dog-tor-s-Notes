@@ -65,6 +65,7 @@ const VetForm = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const { data, error } = await addVetNote({
         variables: { ...formState },

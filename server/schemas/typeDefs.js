@@ -49,13 +49,14 @@ const typeDefs = gql`
       vetNotes: [VetNote]
       profile(profileId:ID!): Profile
       vetNote(vetNoteId: ID!): VetNote
-      getHabits: [Habit]
       environment: Environment
     }
 
     type Mutation {
       addUser(username: String!, email: String!, password: String!): Auth
       addVetNote(petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
+      updateVetNote(_id: ID!, petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
+      removeVetNote(vetNoteId: ID!): VetNote
       updateUser(username: String!, email: String, password: String): User
       addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
       updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile

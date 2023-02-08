@@ -10,6 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import ProfileForm from "./pages/ProfileForm";
 import DogHeader from "./components/Header";
 import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
@@ -58,6 +59,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/profiles" element={<Profile />} />
+              <Route path="/profileForm" element={<ProfileForm />} />
               <Route path="/profiles/:profileId" element={<SingleProfile />} />
               <Route path="/vetNotes" element={<VetNotes />} />
               <Route path="/vetForm" element={<VetForm />} />
