@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { Link } from 'react-router-dom';
-import { Form, Button, Container, Header, Card } from 'semantic-ui-react'
+import { Form, Button, Container, Header, Card, Icon } from 'semantic-ui-react'
 import { ADD_PROFILE} from '../utils/mutations.js';
 import { QUERY_PROFILES } from "../utils/queries.js";
 
@@ -15,8 +15,6 @@ const Profile = () => {
     humanName: "",
   });
 
-
-
   // Fetch all profiles data
   // use refetch to execute refresh in some situations
   const { loading, data, refetch } = useQuery(QUERY_PROFILES, { onCompleted: (data) => setUpdateFormState(data.profiles) });
@@ -27,6 +25,12 @@ const Profile = () => {
     // State for Update Form
     const [updateFormState, setUpdateFormState] = useState([]);
   
+    const [hideState, setHideState] = useState({
+      loadPage: {},
+      create: {
+        display: "none",
+      },
+    });
   // Update state based on Add Form input changes
   const handleChangeAdd = (event) => {
     const { name, value } = event.target;
@@ -36,9 +40,29 @@ const Profile = () => {
       [name]: value,
     });
   };
+  
+  const hider = async () => {
+    setHideState({
+      profiles: {
+        display: "none",
+      },
+      create: {
+        display: "block",
+      },
+    });
+  };
 
-
-
+  const shower = async () => {
+    setHideState({
+      profiles: {
+        display: "block",
+      },
+      create: {
+        display: "none",
+      },
+    });
+  };
+  
   // Submit form for Add Profile
   const handleFormSubmitAdd = async (event) => {
     event.preventDefault();
@@ -83,8 +107,32 @@ const Profile = () => {
     padding: 20
   }
   return (
-    // Form for pet profile
-    <Container style={containerStyle}>
+    
+    <Container style={containerStyle} className='vet-notes-container'>
+      <div className="" style={hideState.profiles}>
+          {loading ? (
+            <div>Loading profile...</div>
+          ) : (
+            data && data.profiles && data.profiles.length > 0 &&
+            <div>
+              <Header className="">Your  Profile(s)</Header>
+              {data.profiles.map((profile) =>
+                <div>
+                  <Card key={profile._id} className="profile-render single-profile">
+                    <Link to={{ pathname: `/profiles/${profile._id}` }}>
+                      {profile.petName} <br /><Icon name='paw'></Icon><br />
+
+                    </Link>
+                  </Card>
+                </div>
+              )}
+                <Button primary compact onClick={hider} className='add-profile-btn vet-note-nav-btns'>Add Profile</Button>
+            </div>
+          )}
+      </div>
+{/* -------------------------------------------- */}
+       {/* Form for pet profile */}
+      <div className="hiding-form" style={hideState.create} >
       <div className="profile-page">
         <Header className="">Please Add Your Dog's Profile Here</Header>
         <div style={cardStyle}>
@@ -154,7 +202,7 @@ const Profile = () => {
               <Button primary centered
                 className="profile-btn"
                 style={{ cursor: "pointer", margin: 8 }}
-                type="submit"
+                type="submit" onClick={shower}
               >
                 Add Profile
               </Button>
@@ -164,31 +212,11 @@ const Profile = () => {
         </div>
       </div>
       <br /><br />
-
-
-        <div className="">
-          {loading ? (
-            <div>Loading profile...</div>
-          ) : (
-            data && data.profiles && data.profiles.length > 0 &&
-            <div>
-              <Header className="">Here is your lovely Dog's Profile List</Header>
-              {data.profiles.map((profile) =>
-                <div>
-                  <Card key={profile._id} className="profile-render">
-                    <Link to={{ pathname: `/profiles/${profile._id}` }}>
-                      {profile.petName} 🦴<br />
-                      {profile.breed}
-                    </Link>
-                  </Card>
-                </div>
-              )}
-            </div>
-          )}
       </div>
-        
+
+
         <Link to="/">
-          <Button primary className='vet-note-nav-btns'>Back Home</Button>
+          <Button primary compact className='vet-note-nav-btns'>Back Home</Button>
         </Link>
     </Container>
 
