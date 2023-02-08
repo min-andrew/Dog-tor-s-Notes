@@ -6,6 +6,7 @@ import { Button, Container, Grid } from 'semantic-ui-react'
 const Injury = () => {
     return (
         <Container>
+            
             <div>
                 <UploadWidget />
             </div>

@@ -8,6 +8,7 @@ const App = () => {
   const [button3Disabled, setButton3Disabled] = useState(false);
   const [button4Disabled, setButton4Disabled] = useState(false);
 
+  // Added separate cases to keep all buttons from launching when one is clicked.
   const handleClick = (buttonNumber) => {
     switch (buttonNumber) {
       case 1:
@@ -30,13 +31,15 @@ const App = () => {
         break;
     }
   };
+
+  // Retrieves localStorage
   const getLocalStorage = () => {
     setButton1Disabled(localStorage.getItem("button1Disabled") === "true");
     setButton2Disabled(localStorage.getItem("button2Disabled") === "true");
     setButton3Disabled(localStorage.getItem("button3Disabled") === "true");
     setButton4Disabled(localStorage.getItem("button4Disabled") === "true");
   };
-
+// Checks if the disabled attribute is still valid by comparing it to the current time.
   useEffect(() => {
     getLocalStorage();
     const midnight = new Date();

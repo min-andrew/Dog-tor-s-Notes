@@ -73,11 +73,11 @@ const UploadWidget = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className='upload-grp'>
       <Segment basic textAlign={"center"}>
         <h1>Photo Library</h1>
         <h3>Upload images of your concerns here</h3>
-        <Form onSubmit={handleSubmitFile}>
+        <Form  className='upload-grp' onSubmit={handleSubmitFile}>
           <Input
             transparent
             id="fileInput"

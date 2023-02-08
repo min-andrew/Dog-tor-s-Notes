@@ -39,20 +39,6 @@ label {
   margin-bottom: 2px !important;
 }
 
-.paw-button {
-  color: #4183c4 !important;
-  background-color: lightskyblue !important;
- }
-
-.paw-button:hover {
-  background-color: #4183c4  !important;
-  color: lightskyblue !important;
-}
-
-.paw-button:active {
-  background-color: #3972ac  !important;
-}
-
 .vet-h2 {
   font-weight: normal !important;
 }
@@ -85,14 +71,6 @@ label {
   margin-top: 20px !important;
 }
 
-.checkBox {
-  flex-direction: row !important;
-}
-
-.habit-checks {
-  display: block !important;
-}
-
 .single-vet-page {
   display: flex;
   justify-content: center !important;
@@ -123,7 +101,6 @@ label {
   flex-direction: column !important;
 }
 
-/* VetNotes page */
 .note-render {
   list-style-type: none !important;
   border-style:groove !important;
@@ -147,9 +124,9 @@ label {
   display: flex;
   justify-content: center;
   flex-direction: row;
-    margin-top: 30px !important;
-    gap: 5px;
-    margin: 0px !important;
+  margin-top: 30px !important;
+  gap: 5px;
+  margin: 0px !important;
 }
 
 footer {
@@ -174,13 +151,12 @@ footer {
 .dogter-banner {
   margin-top: 10px;
   height: 50px !important;
-  min-width: 800px !important;
+  min-width: 900px !important;
 }
 
 .single-profile {
   padding: 20px !important;
   margin: 10px !important;
-  
 }
 
 .add-profile-btn {
@@ -224,6 +200,18 @@ footer {
 
 .habit-header {
   margin-top: 10px !important;
+}
+
+.upload-grp {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+#fileInput {
+  margin-left: 17%!important;
+  margin-bottom: 10px !important;
 }
 
 /* --------------------------------- */
