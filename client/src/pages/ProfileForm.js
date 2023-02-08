@@ -43,6 +43,8 @@ const Profile = () => {
         foodBrand: "",
         humanName: "",
       });
+
+      window.location = "/#/profiles";
     } catch (e) {
       console.error(e);
     }
