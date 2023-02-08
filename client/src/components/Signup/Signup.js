@@ -40,20 +40,20 @@ const Signup = () => {
   };
 
   return (
-    <Container>
-      <Segment basic textAlign={"center"}>
+    <Container className="">
+      <Segment basic textAlign={"center"} className="">
         <Header as="h2" textAlign="center">
           Sign-Up
         </Header>
 
         <div className="">
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Field>
+          <Form onSubmit={handleFormSubmit} className="">
+            <Form.Field className="">
               <h4>
                 <label htmlFor="username">Username:</label>
               </h4>
               <input
-                className=""
+                className="login-input"
                 placeholder="Your username"
                 name="username"
                 type="text"
@@ -68,7 +68,7 @@ const Signup = () => {
                 <label htmlFor="email">Email:</label>
               </h4>
               <input
-                className=""
+                className="login-input"
                 placeholder="Your email"
                 name="email"
                 type="email"
@@ -83,7 +83,7 @@ const Signup = () => {
                 <label htmlFor="password">Password:</label>
               </h4>
               <input
-                className=""
+                className="login-input"
                 placeholder="*****"
                 name="password"
                 type="password"

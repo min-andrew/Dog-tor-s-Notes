@@ -80,11 +80,16 @@ label {
 }
 
 .single-vet-card {
-   display: flex !important;
+  display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   flex-direction: column !important;
   padding: 20px !important;
+  line-height: 1em !important;
+}
+
+.note-div {
+  line-height: 1em !important;
 }
 
 .single-btn-group {
@@ -213,6 +218,12 @@ footer {
   margin-left: 17%!important;
   margin-bottom: 10px !important;
 }
+
+.login-input {
+  max-width: 500px !important;
+  margin: 0px !important;
+}
+
 
 /* --------------------------------- */
 @media (max-width: 600px) {

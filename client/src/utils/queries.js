@@ -7,6 +7,7 @@ export const QUERY_SINGLE_PROFILE = gql`
       petName
       age
       breed
+      microchip
       foodBrand
       humanName
     }
@@ -20,6 +21,7 @@ export const QUERY_PROFILES = gql`
       petName
       age
       breed
+      microchip
       foodBrand
       humanName
     }

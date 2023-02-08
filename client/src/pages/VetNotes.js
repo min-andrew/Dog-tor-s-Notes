@@ -25,7 +25,7 @@ const VetNotes = () => {
       <div className="note-card-container">
       {vetNoteList.map((vetNote) => {
               return (
-                <div>
+                <div className='note-div'>
                 <Card key={vetNote._id} className="note-render">
                   <Link to={{ pathname: `/vetnotes/${vetNote._id}` }}>
                     {vetNote.petName} 🦴<br/> 

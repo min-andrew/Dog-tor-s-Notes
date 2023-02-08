@@ -19,6 +19,7 @@ const typeDefs = gql`
         petName: String
         age: String
         breed: String
+        microchip: String
         foodBrand: String
         humanName: String
     }
@@ -58,8 +59,8 @@ const typeDefs = gql`
       updateVetNote(_id: ID!, petName: String!, appointmentDate: String!, primaryConcern: String!, onsetDate: String!, otherConcerns: String): VetNote
       removeVetNote(vetNoteId: ID!): VetNote
       updateUser(username: String!, email: String, password: String): User
-      addProfile(petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
-      updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, foodBrand: String!, humanName: String!): Profile
+      addProfile(petName: String!, age: String!, breed: String!, microchip: String, foodBrand: String!, humanName: String!): Profile
+      updateProfile(_id: ID!, petName: String!, age: String!, breed: String!, microchip: String, foodBrand: String!, humanName: String!): Profile
       removeProfile(profileId: ID!): Profile
       addHabit(habitName: String!, frequency: String!): Habit
       login(email: String!, password: String!): Auth

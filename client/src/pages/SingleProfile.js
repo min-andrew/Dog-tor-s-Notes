@@ -20,6 +20,7 @@ const SingleProfile = () => {
     petName: "",
     age: "",
     breed: "",
+    microchip: "",
     foodBrand: "",
     humanName: "",
   });
@@ -123,6 +124,8 @@ const SingleProfile = () => {
               {profile.age}
               <Header textAlign={"center"}>Breed</Header>
               {profile.breed}
+              <Header textAlign={"center"}>Microchip Number</Header>
+              {profile.microchip}
               <Header textAlign={"center"}>Food Brand</Header>
               {profile.foodBrand}
               <Header textAlign={"center"}>Owner's Name</Header>
@@ -206,6 +209,18 @@ const SingleProfile = () => {
                       name="breed"
                       type="text"
                       value={updateFormState.breed}
+                      onChange={handleChangeUpdate}
+                    />
+                  </Form.Field>
+                  <Form.Field className="profile-input">
+                    {/* update field for pet breed */}
+                    <label>Microchip Number</label>
+                    <input
+                      className=""
+                      placeholder="AN3ZU3455TX"
+                      name="microchip"
+                      type="text"
+                      value={updateFormState.microchip}
                       onChange={handleChangeUpdate}
                     />
                   </Form.Field>

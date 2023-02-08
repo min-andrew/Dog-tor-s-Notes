@@ -13,6 +13,9 @@ const profileSchema = new Schema({
     type: String,
     required: true,
   },
+  microchip: {
+    type: String,
+  },
   foodBrand: {
     type: String,
     required: true,
