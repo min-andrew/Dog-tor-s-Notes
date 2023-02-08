@@ -47,6 +47,30 @@ export const ADD_VETNOTE = gql`
     }
   }
   `;
+  export const UPDATE_VETNOTE = gql`
+  mutation updateVetNote($_id: ID!, $petName: String!, $appointmentDate: String!, $primaryConcern: String!, $onsetDate: String!, $otherConcerns: String) {
+    updateVetNote(_id: $_id, petName: $petName, appointmentDate: $appointmentDate, primaryConcern: $primaryConcern, onsetDate: $onsetDate, otherConcerns: $otherConcerns) {
+      _id
+      petName
+      appointmentDate
+      primaryConcern
+      onsetDate
+      otherConcerns 
+    }
+  }
+  `;
+
+export const REMOVE_VETNOTE = gql`
+  mutation removeVetNote($vetNoteId: ID!) {
+    removeVetNote(vetNoteId: $vetNoteId) {
+      _id
+      petName
+      appointmentDate
+      primaryConcern
+      onsetDate
+      otherConcerns 
+    }
+  }`;
 
 export const ADD_PROFILE = gql`
   mutation addProfile($petName: String!, $age: String!, $breed: String!, $foodBrand: String!, $humanName: String!) {

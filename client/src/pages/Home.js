@@ -11,7 +11,6 @@ const Home = () => {
                     {Auth.loggedIn() ? (
                         <div>
                             <FeatureList
-                                title="Summary"
                             />
                         </div>
                     ) : (

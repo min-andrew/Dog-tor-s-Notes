@@ -37,10 +37,6 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    getHabits: async () => {
-      const habits = await Habit.find()
-      return habits
-    },
     profile: async (parent, args, context) => {
       if (context.user) {
         const profile = await Profile.findById(args.profileId)
@@ -67,37 +63,10 @@ const resolvers = {
     }
   },
   Mutation: {
-    addHabit: async (parent, args) => {
-      const newHabit = new Habit({ habitName: args.habitName, frequency: args.frequency })
-      await newHabit.save()
-      console.log('The new habit has been added: ', newHabit)
-      return newHabit
-    },
-
-    addHabit: async (parent, args, context) => {
-      console.log(context);
-      if (context.user) {
-        const newHabit = await Habit.create(args);
-        const addedHabit = await User.findByIdAndUpdate({ _id: context.user._id }, { $push: { newHabit: newHabit } }, { new: true });
-        console.log('The new habit has been added: ', newHabit)
-        return newHabit;
-      }
-      throw new AuthenticationError('Not logged in');
-    },
-
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
-    },
-    addVetNote: async (parent, args, context) => {
-      console.log(context);
-      if (context.user) {
-        const newVetNote = await VetNote.create(args);
-         await User.findByIdAndUpdate({ _id: context.user._id }, { $push: { vetNote: newVetNote._id } });
-        return newVetNote;
-      }
-      throw new AuthenticationError('Not logged in');
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
@@ -130,11 +99,27 @@ const resolvers = {
         return await Profile.findByIdAndRemove(profileId);
       }
     },
-    //   updateVetNote: async (parent, { _id, quantity }) => {
-    //     const decrement = Math.abs(quantity) * -1;
+    addVetNote: async (parent, args, context) => {
+      console.log(context);
+      if (context.user) {
+        const newVetNote = await VetNote.create(args);
+         await User.findByIdAndUpdate({ _id: context.user._id }, { $push: { vetNote: newVetNote._id } });
+        return newVetNote;
+      }
+      throw new AuthenticationError('Not logged in');
+    },
+    updateVetNote: async (parent, args, context) => {
+      if (context.user) {
+        return await VetNote.findByIdAndUpdate(args._id, args);
+      }
 
-    //     return await VetNote.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-    //   },
+      throw new AuthenticationError('Not logged in');
+    },
+    removeVetNote: async (parent, { vetNoteId }, context) => {
+      if (context.user) {
+        return await VetNote.findByIdAndRemove(vetNoteId);
+      }
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
