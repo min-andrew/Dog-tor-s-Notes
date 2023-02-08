@@ -91,7 +91,7 @@ const SingleVetNote = () => {
       });
       console.log(data);
 
-      window.location = "#/VetNotes";
+      window.location = "/#/VetNotes";
     } catch (e) {
       console.error(e);
     }
