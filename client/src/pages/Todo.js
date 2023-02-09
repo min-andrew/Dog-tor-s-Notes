@@ -84,7 +84,7 @@ function Todo() {
 
       <Form>
         <Input
-          style={{ width: 380 }}
+          style={{ maxWidth: 380 }}
           name="todo"
           type="text"
           value={todo}
