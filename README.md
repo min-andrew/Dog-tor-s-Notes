@@ -53,23 +53,23 @@ The application (link above) was created to be used on the following devices:
 
 ### Homepage
 
-![Homepage](./public/image%202/Login%20Page.png)
+![Homepage](/client/src/assets/home.png)
 
 ### Create Profile
 
-![Create Profile](./public/image%202/Create%20Profile.png)
+![Create Profile](/client/src/assets/createprofile.png)
 
-### Create Post
+### Create Note
 
-![Create Post](./public/image%202/Create%20Post.png)
+![Create Note](/client/src/assets/createnote.png)
 
-### View Single Post
+### View Single Note
 
-![View Single Post](./public/image%202/Single%20Post.png)
+![View Single Note](/client/src/assets/viewnote.png)
 
 ### View Profile
 
-![View Profile](./public/image%202/View%20Profile.png)
+![View Profile](/client/src/assets/viewprofile.png)
 
 <br>
 
@@ -95,7 +95,7 @@ Our team is grateful for the assistance from our tutors, especially Ben Martin. 
 
 ## [License](#table-of-contents)
 
-**MIT** Copyright 2022, Jennifer Alexander, Robert Arnold, Andrew Min, Tracy Pham, and Kenny Wai<br>
+**MIT** Copyright 2022, Jennifer Alexander, Alex Lee, Andrew Min, Tracy Pham, and Kenny Wai<br>
 [Information about your MIT license.](https://opensource.org/licenses/MIT)
 <br><br>
 
