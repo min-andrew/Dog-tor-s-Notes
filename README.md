@@ -1,23 +1,23 @@
 # Dog-tor's Notes
 
-
 ## Description
 
-This application is for dog owners who would like an easy and informative app to track their dog’s health. This app allows users to monitor various aspects of their dog’s health, such as their medical appointments, issues, concerns, and daily habits. There is also a web store for products that improve their dog’s wellbeing.
+This application is for dog owners who would like an easy and informative app to track their dog’s health. This app allows users to monitor various aspects of their dog’s health, such as their medical appointments, issues, concerns, daily habits, and tasks. Users can also connect with the greater dog community by sharing their thoughts and comments.
 
 <br>
-For this application, we used the following technologies: React, GraphQL, MongoDB, NodeJS, Express, Heroku, Cloudinary,  Nodemon, along with JavaScript, JSON, HTML, CSS, Semantic UI, and more.
+For this application, we used the following technologies: React, Apollo GraphQL, MongoDB, Mongoose, NodeJS, Express, JWT, Heroku, Cloudinary,  Nodemon, along with JavaScript, JSON, HTML, CSS and Semantic UI.
 <br><br>
 
-Some of the challenges we faced in creating this app included connecting to the backend and using GraphQL for the first time on a MERN project. We had some struggles with Cloudinary. And working with Semantic UI turned out to be quite limiting, due to their CSS library overruling our own. 
+Some of the challenges we faced in creating this app included connecting to the backend and using GraphQL for the first time on a MERN project. We had some struggles with Cloudinary. And working with Semantic UI turned out to be quite limiting, due to their CSS library overruling our own.
 <br><br>
 In the future, we would like:
- - Add a calendar and reminders for important dates, appointments, and habits. 
- - Add an area to upload/access sensitive information (pictures of insurance card).
- - Link vet notes to each pet's profile.
- - Add a storefront
- - Include health tips for dog owners.
-<br><br>
+
+- Calendar, reminders, notifications for important dates and appointments
+- Area to upload and access sensitive information (documentation/report of visit, insurance cards, etc)
+- Make individual pet profiles that connect to their respective vet notes
+- Connect todo list and habit tracker to database
+- Storefront
+  <br><br>
 
 ## Table of Contents
 
@@ -35,7 +35,7 @@ In the future, we would like:
 
 This application is deployed at [Dog-tor's Notes on Heroku.](https://whispering-plains-29779.herokuapp.com/) <br>
 <br>
-The repository is on GitHub: [Repository for Furever Friends.](https://github.com/min-andrew/project-2) <br>
+The repository is on GitHub: [Repository for Dog-tor's Notes.](https://github.com/min-andrew/Dog-tor-s-Notes) <br>
 
 There you will find following file types:
 JavaScript, JSON, HTML, CSS, README, Images.
@@ -99,7 +99,7 @@ Our team is grateful for the assistance from our tutors, especially Ben Martin. 
 
 ## [License](#table-of-contents)
 
-**MIT** Copyright 2022, Jennifer Alexander, Alex Lee, Andrew Min, Tracy Pham, and Kenny Wai<br>
+**MIT** Copyright 2023, Jennifer Alexander, Alex Lee, Andrew Min, Tracy Pham, and Kenny Wai<br>
 [Information about your MIT license.](https://opensource.org/licenses/MIT)
 <br><br>
 
@@ -112,7 +112,6 @@ We are not interested in collaborations at this time. Thank you for your interes
 
 ![badge](https://img.shields.io/badge/license-MIT-blue)
 <br><br>
-
 
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
