@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Segment,
   Button,
@@ -102,6 +103,12 @@ function Todo() {
           Add
         </Button>
       </Form>
+
+      <Link to="/">
+        <Button primary className="vet-note-nav-btns">
+          Back Home
+        </Button>
+      </Link>
     </Container>
   );
 }
