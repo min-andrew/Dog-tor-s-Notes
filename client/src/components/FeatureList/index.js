@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Icon, Card } from "semantic-ui-react";
 import HabitButtons from "../HabitBtns";
-import Tips from "../Tips";
 import Footer from "../Footer";
 
 const FeatureList = ({ title }) => {
@@ -29,6 +28,9 @@ const FeatureList = ({ title }) => {
       <div style={bodyStyle}>
         <div>
           <div className="note-card-container">
+          <div className="habit-btns">
+              <HabitButtons />
+            </div>
             <Card>
               <Link style={cardStyle} to="/profiles">
                 <Card.Header>
@@ -68,7 +70,7 @@ const FeatureList = ({ title }) => {
             <Card>
               <Link style={cardStyle} gi to="/CommunityHome">
                 <Card.Header>
-                  <Icon enabled name='camera' size='big' />
+                  <Icon enabled name='users' size='big' />
                   Doggy Community
                 </Card.Header>
                 <Card.Meta>
@@ -76,12 +78,15 @@ const FeatureList = ({ title }) => {
                 </Card.Meta>
               </Link>
             </Card>
-            <div className="tips">
-              <Tips />
-            </div>
-            <div className="habit-btns">
-              <HabitButtons />
-            </div>
+            <Card>
+              <Link style={cardStyle} gi to="/healthTip">
+                <Card.Header>
+                  <Icon enabled name="leaf" size="big" />
+                  Health Tips
+                </Card.Header>
+                <Card.Meta>Read expert tips from the pros</Card.Meta>
+              </Link>
+            </Card>
           </div>
         </div>
       </div>

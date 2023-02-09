@@ -146,11 +146,11 @@ footer {
 
 .hero {
   background-image: url("https://user-images.githubusercontent.com/110498167/217146868-44a02b2c-c3d0-4c65-95c5-c5272de1fa35.jpg") !important;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
+  height: 100vh !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
 }
 
 .dogter-banner {
@@ -200,7 +200,7 @@ footer {
 }
 
 .habit-row {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .habit-header {
