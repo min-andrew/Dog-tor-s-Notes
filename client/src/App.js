@@ -12,7 +12,6 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import ProfileForm from "./pages/ProfileForm";
 import DogHeader from "./components/Header";
-import Footer from "./components/Footer";
 import VetNotes from "./pages/VetNotes";
 import VetForm from "./pages/VetForm";
 import Photos from "./pages/Photos";
@@ -21,7 +20,9 @@ import SingleVetNote from "./pages/SingleVetNote";
 import SingleProfile from "./pages/SingleProfile";
 import HealthTipsArticles from "./pages/HealthTip";
 import Todo from "./pages/Todo";
-
+import CommunityHome from './pages/CommunityPages/CommunityHome';
+import SingleThought from './pages/CommunityPages/SingleThought';
+import CommunityProfile from './pages/CommunityPages/CommunityProfile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -49,7 +50,8 @@ const client = new ApolloClient({
 
 function App() {
   const style = {
-    paddingTop: "120px",
+    paddingTop: "30px",
+    paddingBottom: '10px'
   };
 
   return (
@@ -70,9 +72,11 @@ function App() {
               <Route path="/habitForm" element={<HabitForm />} />
               <Route path="/healthTip" element={<HealthTipsArticles />} />
               <Route path="/todo" element={<Todo />} />
+              <Route path="/CommunityHome" element={<CommunityHome />} />
+              <Route path="/SingleThought/:thoughtId" element={<SingleThought />} />
+              <Route path="/myThoughts" element={<CommunityProfile />} />
             </Routes>
           </div>
-          <Footer />
         </div>
       </Router>
     </ApolloProvider>

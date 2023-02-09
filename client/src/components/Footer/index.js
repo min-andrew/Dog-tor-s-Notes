@@ -1,17 +1,20 @@
 import React from 'react';
 
-import {Image} from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 const Footer = () => {
- 
+
     const style = {
-        position: 'fixed',
-        bottom: 0,
+        position: 'relative',
+        bottom: '-12px',
         width: '100%',
         height: '50px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'white',
+        padding: '35px',
+        opaque: .6
     }
 
     return (

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Icon, Card } from "semantic-ui-react";
 import HabitButtons from "../HabitBtns";
 import Tips from "../Tips";
+import Footer from "../Footer";
 
 const FeatureList = ({ title }) => {
   const titleStyle = {
@@ -64,6 +65,17 @@ const FeatureList = ({ title }) => {
                 <Card.Meta>Monitor your todos</Card.Meta>
               </Link>
             </Card>
+            <Card>
+              <Link style={cardStyle} gi to="/CommunityHome">
+                <Card.Header>
+                  <Icon enabled name='camera' size='big' />
+                  Doggy Community
+                </Card.Header>
+                <Card.Meta>
+                  Talk with the community!
+                </Card.Meta>
+              </Link>
+            </Card>
             <div className="tips">
               <Tips />
             </div>
@@ -73,6 +85,7 @@ const FeatureList = ({ title }) => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
