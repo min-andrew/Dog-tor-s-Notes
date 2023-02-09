@@ -58,7 +58,7 @@ const FeatureList = ({ title }) => {
             <Card>
               <Link style={cardStyle} gi to="/todo">
                 <Card.Header>
-                  <Icon enabled name="camera" size="big" />
+                  <Icon enabled name="list ul" size="big" />
                   Todo List
                 </Card.Header>
                 <Card.Meta>Monitor your todos</Card.Meta>
