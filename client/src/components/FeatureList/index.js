@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button, Icon, Card } from "semantic-ui-react";
+import { Icon, Card } from "semantic-ui-react";
 import HabitButtons from "../HabitBtns";
+import Tips from "../Tips";
 
 const FeatureList = ({ title }) => {
   const titleStyle = {
@@ -54,9 +55,13 @@ const FeatureList = ({ title }) => {
                 <Card.Meta>Upload photos of your concerns</Card.Meta>
               </Link>
             </Card>
+            <div className="tips">
+              <Tips />
+            </div>
             <div className="habit-btns">
               <HabitButtons />
             </div>
+           
           </div>
         </div>
       </div>
