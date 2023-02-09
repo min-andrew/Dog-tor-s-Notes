@@ -12,7 +12,7 @@ const Footer = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
         padding: '35px',
         opaque: .6
     }
