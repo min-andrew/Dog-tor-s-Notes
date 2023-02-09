@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon index.js --ignore client"
+    "watch": "nodemon index.js --ignore client",
+    "seed": "node config/seeds.js"
   },
   "keywords": [],
   "author": "Jen Alexander, Alex Lee, Andrew Min, Tracy Pham, Kenny Wai",
@@ -18,7 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10",
     "cloudinary": "^1.21.0",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "stripe": "^8.67.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

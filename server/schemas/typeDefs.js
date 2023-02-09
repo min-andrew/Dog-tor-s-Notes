@@ -7,6 +7,22 @@ const typeDefs = gql`
         email: String
         profile: [Profile]
         vetNote: [VetNote]
+        thoughts: [Thought]!
+    }
+
+    type Thought {
+      _id: ID
+      thoughtText: String
+      thoughtAuthor: String
+      createdAt: String
+      comments: [Comment]!
+    }
+  
+    type Comment {
+      _id: ID
+      commentText: String
+      commentAuthor: String
+      createdAt: String
     }
 
     type Auth {
@@ -51,6 +67,10 @@ const typeDefs = gql`
       profile(profileId:ID!): Profile
       vetNote(vetNoteId: ID!): VetNote
       environment: Environment
+      thoughts(username: String): [Thought]
+      thought(thoughtId: ID!): Thought
+      me: User
+      users: [User]
     }
 
     type Mutation {
@@ -64,6 +84,10 @@ const typeDefs = gql`
       removeProfile(profileId: ID!): Profile
       addHabit(habitName: String!, frequency: String!): Habit
       login(email: String!, password: String!): Auth
+      addThought(thoughtText: String!): Thought
+      addComment(thoughtId: ID!, commentText: String!): Thought
+      removeThought(thoughtId: ID!): Thought
+      removeComment(thoughtId: ID!, commentId: ID!): Thought
 }
 
 `;

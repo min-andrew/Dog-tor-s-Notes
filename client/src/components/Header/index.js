@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Sticky, Button, Image } from "semantic-ui-react";
+import { Header, Button, Image } from "semantic-ui-react";
 
 import Auth from "../../utils/auth";
 
@@ -11,7 +11,7 @@ const DogHeader = () => {
   };
 
   const style = {
-    position: "fixed",
+    position: "relative",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -26,30 +26,28 @@ const DogHeader = () => {
   };
 
   return (
-    <Sticky>
-      <Header style={style} as="h3" dividing textAlign="center">
-        <div>
-          <Link className="" to="/">
-            <Image
-              className="dogter-banner"
-              src="https://user-images.githubusercontent.com/110498167/217140031-0b16bf64-3951-4183-a4db-a65b5c9b3fd4.png"
-              fluid
-            />
-          </Link>
-          <Header style={menu} textAlign="center" className="header-top">
-            {Auth.loggedIn() ? (
-              <div>
-                <Button primary mini compact onClick={logout}>
-                  Logout
-                </Button>
-              </div>
-            ) : (
-              <></>
-            )}
-          </Header>
-        </div>
-      </Header>
-    </Sticky>
+    <Header style={style} as="h3" dividing textAlign="center">
+      <div>
+        <Link className="" to="/">
+          <Image
+            className="dogter-banner"
+            src="https://user-images.githubusercontent.com/110498167/217140031-0b16bf64-3951-4183-a4db-a65b5c9b3fd4.png"
+            fluid
+          />
+        </Link>
+        <Header style={menu} textAlign="center" className="header-top">
+          {Auth.loggedIn() ? (
+            <div>
+              <Button primary mini compact onClick={logout}>
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <></>
+          )}
+        </Header>
+      </div>
+    </Header>
   );
 };
 
