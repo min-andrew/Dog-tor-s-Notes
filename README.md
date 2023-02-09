@@ -53,7 +53,8 @@ The application (link above) was created to be used on the following devices:
 
 ### Homepage
 
-![Homepage](/client/src/assets/home.png)
+![Landing page](/client/src/assets/home.png)
+![Home page](/client/src/assets/homepagecards.png)
 
 ### Create Profile
 
