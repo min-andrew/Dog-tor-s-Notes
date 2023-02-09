@@ -224,7 +224,10 @@ footer {
   margin: 0px !important;
 }
 
-
+.tips-text {
+  max-width: 400px !important;
+  margin-top: 15px !important;
+}
 /* --------------------------------- */
 @media (max-width: 600px) {
   footer {
