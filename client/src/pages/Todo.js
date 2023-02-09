@@ -56,7 +56,7 @@ function Todo() {
           {!todos.length
             ? " 0 tasks"
             : todos.length === 1
-            ? " 1 tasks"
+            ? " 1 task"
             : todos.length > 1
             ? ` ${todos.length} tasks`
             : null}{" "}
