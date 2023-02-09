@@ -51,9 +51,12 @@ The application (link above) was created to be used on the following devices:
 
 <br>
 
-### Homepage
+### Landing Page
 
 ![Landing Page](/client/src/assets/home.png)
+
+### Home Page
+
 ![Home Page](/client/src/assets/homepagecards.png)
 
 ### Create Profile
