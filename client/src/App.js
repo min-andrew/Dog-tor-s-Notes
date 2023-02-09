@@ -19,6 +19,7 @@ import Photos from "./pages/Photos";
 import HabitForm from "./pages/HabitForm";
 import SingleVetNote from "./pages/SingleVetNote";
 import SingleProfile from "./pages/SingleProfile";
+import HealthTipsArticles from "./pages/HealthTip";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -65,6 +66,7 @@ function App() {
               <Route path="/vetNotes/:vetNoteId" element={<SingleVetNote />} />
               <Route path="/photos" element={<Photos />} />
               <Route path="/habitForm" element={<HabitForm />} />
+              <Route path="/healthTip" element={<HealthTipsArticles />} />
             </Routes>
           </div>
           <Footer />

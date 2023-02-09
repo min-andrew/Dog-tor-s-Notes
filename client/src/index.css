@@ -228,6 +228,15 @@ footer {
   max-width: 400px !important;
   margin-top: 15px !important;
 }
+
+.health-cards {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+
+
+}
 /* --------------------------------- */
 @media (max-width: 600px) {
   footer {
