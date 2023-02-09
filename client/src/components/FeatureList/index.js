@@ -55,13 +55,21 @@ const FeatureList = ({ title }) => {
                 <Card.Meta>Upload photos of your concerns</Card.Meta>
               </Link>
             </Card>
+            <Card>
+              <Link style={cardStyle} gi to="/todo">
+                <Card.Header>
+                  <Icon enabled name="camera" size="big" />
+                  Todo List
+                </Card.Header>
+                <Card.Meta>Monitor your todos</Card.Meta>
+              </Link>
+            </Card>
             <div className="tips">
               <Tips />
             </div>
             <div className="habit-btns">
               <HabitButtons />
             </div>
-           
           </div>
         </div>
       </div>
